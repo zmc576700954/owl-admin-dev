@@ -6186,6 +6186,312 @@
             "install-path": "../slowlyo/owl-admin"
         },
         {
+            "name": "slowlyo/owl-amis-json-parse",
+            "version": "v1.1.4",
+            "version_normalized": "1.1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Slowlyo/owl-amis-json-parse.git",
+                "reference": "14d1ba8b1abca2e1b716ce4ef21b0f2bb8eba2b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Slowlyo/owl-amis-json-parse/zipball/14d1ba8b1abca2e1b716ce4ef21b0f2bb8eba2b5",
+                "reference": "14d1ba8b1abca2e1b716ce4ef21b0f2bb8eba2b5",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=8.0",
+                "slowlyo/owl-admin": "*"
+            },
+            "time": "2023-04-27T01:57:14+00:00",
+            "type": "library",
+            "extra": {
+                "owl-admin": "Slowlyo\\OwlAmisJsonParse\\OwlAmisJsonParseServiceProvider",
+                "laravel": {
+                    "providers": [
+                        "Slowlyo\\OwlAmisJsonParse\\OwlAmisJsonParseServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Slowlyo\\OwlAmisJsonParse\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "slowlyo",
+                    "email": "slowlyo_email@qq.com"
+                }
+            ],
+            "description": "将 amis 的 json 结构转换为 OwlAdmin 代码",
+            "homepage": "https://gitee.com/slowlyo/slow-amis-json-parse",
+            "keywords": [
+                "amis",
+                "extension",
+                "json-parse",
+                "owl-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/Slowlyo/owl-amis-json-parse/issues",
+                "source": "https://github.com/Slowlyo/owl-amis-json-parse/tree/v1.1.4"
+            },
+            "install-path": "../slowlyo/owl-amis-json-parse"
+        },
+        {
+            "name": "slowlyo/owl-dict",
+            "version": "v1.3.2",
+            "version_normalized": "1.3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/owl-admin/dict.git",
+                "reference": "8754d9258a11175ec17f30e698b6489abade11ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/owl-admin/dict/zipball/8754d9258a11175ec17f30e698b6489abade11ef",
+                "reference": "8754d9258a11175ec17f30e698b6489abade11ef",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=8.0",
+                "slowlyo/owl-admin": "*"
+            },
+            "time": "2024-07-08T03:05:14+00:00",
+            "type": "library",
+            "extra": {
+                "owl-admin": "Slowlyo\\OwlDict\\OwlDictServiceProvider",
+                "laravel": {
+                    "providers": [
+                        "Slowlyo\\OwlDict\\OwlDictServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Slowlyo\\OwlDict\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "slowlyo",
+                    "email": "slowlyo_email@qq.com"
+                }
+            ],
+            "description": "OwlAdmin 数据字典扩展",
+            "homepage": "https://gitee.com/slowlyo/owl-dict",
+            "keywords": [
+                "Dict",
+                "extension",
+                "owl-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/owl-admin/dict/issues",
+                "source": "https://github.com/owl-admin/dict/tree/v1.3.2"
+            },
+            "install-path": "../slowlyo/owl-dict"
+        },
+        {
+            "name": "slowlyo/owl-log-viewer",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/owl-admin/log-viewer.git",
+                "reference": "d249c011dd7febe2f7be5bf800b42ed325b02d40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/owl-admin/log-viewer/zipball/d249c011dd7febe2f7be5bf800b42ed325b02d40",
+                "reference": "d249c011dd7febe2f7be5bf800b42ed325b02d40",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=8.0",
+                "slowlyo/owl-admin": "*"
+            },
+            "time": "2024-03-10T13:57:59+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Slowlyo\\OwlLogViewer\\OwlLogViewerServiceProvider"
+                    ]
+                },
+                "owl-admin": "Slowlyo\\OwlLogViewer\\OwlLogViewerServiceProvider"
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Slowlyo\\OwlLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "slowlyo",
+                    "email": "slowlyo_email@qq.com"
+                }
+            ],
+            "description": "更方便的查看laravel日志",
+            "homepage": "https://github.com/slowlyo/owl-log-viewer",
+            "keywords": [
+                "extension",
+                "owl-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/owl-admin/log-viewer/issues",
+                "source": "https://github.com/owl-admin/log-viewer/tree/v1.0.0"
+            },
+            "install-path": "../slowlyo/owl-log-viewer"
+        },
+        {
+            "name": "slowlyo/owl-login-guard",
+            "version": "v1.1.1",
+            "version_normalized": "1.1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitee.com/slowlyo/owl-login-guard",
+                "reference": "322249681e83949446aa6afa9189f394455fe6a5"
+            },
+            "require": {
+                "php": ">=8.0",
+                "slowlyo/owl-admin": "*"
+            },
+            "time": "2023-03-10T12:07:10+00:00",
+            "type": "library",
+            "extra": {
+                "owl-admin": "Slowlyo\\OwlLoginGuard\\OwlLoginGuardServiceProvider",
+                "laravel": {
+                    "providers": [
+                        "Slowlyo\\OwlLoginGuard\\OwlLoginGuardServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "Slowlyo\\OwlLoginGuard\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "slowlyo",
+                    "email": "slowlyo_email@qq.com"
+                }
+            ],
+            "description": "OwlAdmin扩展: 增加登录保护功能",
+            "homepage": "https://gitee.com/slowlyo/owl-login-guard",
+            "keywords": [
+                "extension",
+                "owl-admin"
+            ],
+            "install-path": "../slowlyo/owl-login-guard"
+        },
+        {
+            "name": "slowlyo/owl-menu-search",
+            "version": "v0.1.0",
+            "version_normalized": "0.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/owl-admin/menu-search.git",
+                "reference": "6ccf0d6f2440bf1e4f459f3ebfc4fc543909a4b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/owl-admin/menu-search/zipball/6ccf0d6f2440bf1e4f459f3ebfc4fc543909a4b1",
+                "reference": "6ccf0d6f2440bf1e4f459f3ebfc4fc543909a4b1",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=8.0",
+                "slowlyo/owl-admin": "*"
+            },
+            "time": "2024-06-14T14:54:01+00:00",
+            "type": "library",
+            "extra": {
+                "owl-admin": "Slowlyo\\OwlMenuSearch\\OwlMenuSearchServiceProvider",
+                "laravel": {
+                    "providers": [
+                        "Slowlyo\\OwlMenuSearch\\OwlMenuSearchServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Slowlyo\\OwlMenuSearch\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Slowlyo",
+                    "email": "slowlyo_email@qq.com"
+                }
+            ],
+            "description": "OwlAdmin扩展: 顶部栏-菜单搜索",
+            "homepage": "https://github.com/slowlyo/owl-menu-search",
+            "keywords": [
+                "extension",
+                "menu search",
+                "owl-admin"
+            ],
+            "support": {
+                "issues": "https://github.com/owl-admin/menu-search/issues",
+                "source": "https://github.com/owl-admin/menu-search/tree/v0.1.0"
+            },
+            "install-path": "../slowlyo/owl-menu-search"
+        },
+        {
             "name": "spatie/backtrace",
             "version": "1.7.1",
             "version_normalized": "1.7.1.0",

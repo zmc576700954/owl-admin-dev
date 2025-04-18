@@ -12,10 +12,10 @@ class ComposerStaticInitcb749b8021e4ce058631f961225e3ee9
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
+        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
@@ -33,15 +33,16 @@ class ComposerStaticInitcb749b8021e4ce058631f961225e3ee9
         '7f7ac2ddea9cc3fb4b2cc201d63dbc10' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Log/functions.php',
         '493c6aea52f6009bab023b26c21a386a' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/functions.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '8f865cfbe83a61e1b6f1cc357b9da777' => __DIR__ . '/..' . '/slowlyo/laravel-support/src/functions.php',
+        '48c5a033c4a30905fbd2313769995abb' => __DIR__ . '/..' . '/slowlyo/owl-admin/src/Support/helpers.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        '8f865cfbe83a61e1b6f1cc357b9da777' => __DIR__ . '/..' . '/slowlyo/laravel-support/src/functions.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'a1cfe24d14977df6878b9bf804af2d1c' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Phpunit/Autoload.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
-        '48c5a033c4a30905fbd2313769995abb' => __DIR__ . '/..' . '/slowlyo/owl-admin/src/Support/helpers.php',
+        'fbdc457f7b24eca09bc9e6691dca6bf3' => __DIR__ . '/..' . '/slowlyo/owl-dict/src/helpers.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
     );
 
@@ -97,6 +98,11 @@ class ComposerStaticInitcb749b8021e4ce058631f961225e3ee9
             'Spatie\\ErrorSolutions\\' => 22,
             'Spatie\\Backtrace\\' => 17,
             'Slowlyo\\Support\\' => 16,
+            'Slowlyo\\OwlMenuSearch\\' => 22,
+            'Slowlyo\\OwlLoginGuard\\' => 22,
+            'Slowlyo\\OwlLogViewer\\' => 21,
+            'Slowlyo\\OwlDict\\' => 16,
+            'Slowlyo\\OwlAmisJsonParse\\' => 25,
             'Slowlyo\\OwlAdmin\\' => 17,
         ),
         'R' => 
@@ -351,6 +357,26 @@ class ComposerStaticInitcb749b8021e4ce058631f961225e3ee9
         array (
             0 => __DIR__ . '/..' . '/slowlyo/laravel-support/src',
         ),
+        'Slowlyo\\OwlMenuSearch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slowlyo/owl-menu-search/src',
+        ),
+        'Slowlyo\\OwlLoginGuard\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slowlyo/owl-login-guard/src',
+        ),
+        'Slowlyo\\OwlLogViewer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slowlyo/owl-log-viewer/src',
+        ),
+        'Slowlyo\\OwlDict\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slowlyo/owl-dict/src',
+        ),
+        'Slowlyo\\OwlAmisJsonParse\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slowlyo/owl-amis-json-parse/src',
+        ),
         'Slowlyo\\OwlAdmin\\' => 
         array (
             0 => __DIR__ . '/..' . '/slowlyo/owl-admin/src',
@@ -557,6 +583,9 @@ class ComposerStaticInitcb749b8021e4ce058631f961225e3ee9
     );
 
     public static $classMap = array (
+        'App\\Admin\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Admin/Controllers/AuthController.php',
+        'App\\Admin\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Admin/Controllers/HomeController.php',
+        'App\\Admin\\Controllers\\SettingController' => __DIR__ . '/../..' . '/app/Admin/Controllers/SettingController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -5845,6 +5874,20 @@ class ComposerStaticInitcb749b8021e4ce058631f961225e3ee9
         'Slowlyo\\OwlAdmin\\Traits\\MakeTrait' => __DIR__ . '/..' . '/slowlyo/owl-admin/src/Traits/MakeTrait.php',
         'Slowlyo\\OwlAdmin\\Traits\\QueryPathTrait' => __DIR__ . '/..' . '/slowlyo/owl-admin/src/Traits/QueryPathTrait.php',
         'Slowlyo\\OwlAdmin\\Traits\\UploadTrait' => __DIR__ . '/..' . '/slowlyo/owl-admin/src/Traits/UploadTrait.php',
+        'Slowlyo\\OwlAmisJsonParse\\Http\\Controllers\\OwlAmisJsonParseController' => __DIR__ . '/..' . '/slowlyo/owl-amis-json-parse/src/Http/Controllers/OwlAmisJsonParseController.php',
+        'Slowlyo\\OwlAmisJsonParse\\OwlAmisJsonParseServiceProvider' => __DIR__ . '/..' . '/slowlyo/owl-amis-json-parse/src/OwlAmisJsonParseServiceProvider.php',
+        'Slowlyo\\OwlAmisJsonParse\\Support\\Parse' => __DIR__ . '/..' . '/slowlyo/owl-amis-json-parse/src/Support/Parse.php',
+        'Slowlyo\\OwlDict\\AdminDict' => __DIR__ . '/..' . '/slowlyo/owl-dict/src/AdminDict.php',
+        'Slowlyo\\OwlDict\\Http\\Controllers\\OwlDictController' => __DIR__ . '/..' . '/slowlyo/owl-dict/src/Http/Controllers/OwlDictController.php',
+        'Slowlyo\\OwlDict\\Models\\AdminDict' => __DIR__ . '/..' . '/slowlyo/owl-dict/src/Models/AdminDict.php',
+        'Slowlyo\\OwlDict\\OwlDictServiceProvider' => __DIR__ . '/..' . '/slowlyo/owl-dict/src/OwlDictServiceProvider.php',
+        'Slowlyo\\OwlDict\\Services\\AdminDictService' => __DIR__ . '/..' . '/slowlyo/owl-dict/src/Services/AdminDictService.php',
+        'Slowlyo\\OwlLogViewer\\Http\\Controllers\\OwlLogViewerController' => __DIR__ . '/..' . '/slowlyo/owl-log-viewer/src/Http/Controllers/OwlLogViewerController.php',
+        'Slowlyo\\OwlLogViewer\\OwlLogViewerServiceProvider' => __DIR__ . '/..' . '/slowlyo/owl-log-viewer/src/OwlLogViewerServiceProvider.php',
+        'Slowlyo\\OwlLoginGuard\\Http\\Middleware\\LoginMiddleware' => __DIR__ . '/..' . '/slowlyo/owl-login-guard/src/Http/Middleware/LoginMiddleware.php',
+        'Slowlyo\\OwlLoginGuard\\OwlLoginGuardServiceProvider' => __DIR__ . '/..' . '/slowlyo/owl-login-guard/src/OwlLoginGuardServiceProvider.php',
+        'Slowlyo\\OwlMenuSearch\\Http\\Controllers\\OwlMenuSearchController' => __DIR__ . '/..' . '/slowlyo/owl-menu-search/src/Http/Controllers/OwlMenuSearchController.php',
+        'Slowlyo\\OwlMenuSearch\\OwlMenuSearchServiceProvider' => __DIR__ . '/..' . '/slowlyo/owl-menu-search/src/OwlMenuSearchServiceProvider.php',
         'Slowlyo\\Support\\Macro' => __DIR__ . '/..' . '/slowlyo/laravel-support/src/Macro.php',
         'Slowlyo\\Support\\SqlRecord' => __DIR__ . '/..' . '/slowlyo/laravel-support/src/SqlRecord.php',
         'Slowlyo\\Support\\SupportServiceProvider' => __DIR__ . '/..' . '/slowlyo/laravel-support/src/SupportServiceProvider.php',
