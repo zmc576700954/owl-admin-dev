@@ -1,12 +1,14 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '39bf8f2b14015ca61824a5ad00a2f30af18d7391',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
-        'aliases' => array(),
+        'aliases' => array(
+            0 => '11.x-dev',
+        ),
         'dev' => true,
     ),
     'versions' => array(
@@ -388,12 +390,14 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '39bf8f2b14015ca61824a5ad00a2f30af18d7391',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '11.x-dev',
+            ),
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -980,6 +984,24 @@
             'install_path' => __DIR__ . '/../sebastian/version',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'slowlyo/laravel-support' => array(
+            'pretty_version' => 'v0.0.6',
+            'version' => '0.0.6.0',
+            'reference' => '71cd69f7ffd6eec829afb970733b54c8d860b29f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../slowlyo/laravel-support',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'slowlyo/owl-admin' => array(
+            'pretty_version' => 'v4.0.9',
+            'version' => '4.0.9.0',
+            'reference' => '0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../slowlyo/owl-admin',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'spatie/backtrace' => array(
             'pretty_version' => '1.7.1',

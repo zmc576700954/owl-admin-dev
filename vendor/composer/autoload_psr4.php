@@ -45,6 +45,8 @@ return array(
     'Spatie\\FlareClient\\' => array($vendorDir . '/spatie/flare-client-php/src'),
     'Spatie\\ErrorSolutions\\' => array($vendorDir . '/spatie/error-solutions/src'),
     'Spatie\\Backtrace\\' => array($vendorDir . '/spatie/backtrace/src'),
+    'Slowlyo\\Support\\' => array($vendorDir . '/slowlyo/laravel-support/src'),
+    'Slowlyo\\OwlAdmin\\' => array($vendorDir . '/slowlyo/owl-admin/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),

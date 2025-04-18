@@ -6047,6 +6047,145 @@
             "install-path": "../sebastian/version"
         },
         {
+            "name": "slowlyo/laravel-support",
+            "version": "v0.0.6",
+            "version_normalized": "0.0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slowlyo/laravel-support.git",
+                "reference": "71cd69f7ffd6eec829afb970733b54c8d860b29f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slowlyo/laravel-support/zipball/71cd69f7ffd6eec829afb970733b54c8d860b29f",
+                "reference": "71cd69f7ffd6eec829afb970733b54c8d860b29f",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "ext-json": "*",
+                "laravel/framework": ">=8",
+                "php": ">=7.4.0"
+            },
+            "time": "2024-11-21T07:33:06+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Slowlyo\\Support\\SupportServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "./src/functions.php"
+                ],
+                "psr-4": {
+                    "Slowlyo\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Slowlyo",
+                    "email": "slowlyo_email@qq.com"
+                }
+            ],
+            "description": "php/laravel部分代码封装",
+            "support": {
+                "issues": "https://github.com/slowlyo/laravel-support/issues",
+                "source": "https://github.com/slowlyo/laravel-support/tree/v0.0.6"
+            },
+            "install-path": "../slowlyo/laravel-support"
+        },
+        {
+            "name": "slowlyo/owl-admin",
+            "version": "v4.0.9",
+            "version_normalized": "4.0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/slowlyo/owl-admin.git",
+                "reference": "0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/slowlyo/owl-admin/zipball/0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774",
+                "reference": "0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-gd": "*",
+                "ext-zip": "*",
+                "illuminate/support": ">=11",
+                "php": ">=8.2",
+                "slowlyo/laravel-support": "*"
+            },
+            "time": "2024-12-07T14:49:15+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "OwlAdmin": "Slowlyo\\OwlAdmin\\Facades\\OwlAdmin"
+                    },
+                    "providers": [
+                        "Slowlyo\\OwlAdmin\\AdminServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/Support/helpers.php"
+                ],
+                "psr-4": {
+                    "Slowlyo\\OwlAdmin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "slowlyo",
+                    "email": "slowlyo_email@qq.com",
+                    "homepage": "https://github.com/slowlyo"
+                }
+            ],
+            "description": "基于 laravel、amis 开发的后台框架~",
+            "homepage": "https://github.com/slowlyo/owl-admin",
+            "keywords": [
+                "admin",
+                "amis",
+                "laravel",
+                "owl-admin"
+            ],
+            "support": {
+                "email": "slowlyo_email@qq.com",
+                "forum": "https://github.com/orgs/owl-admin/discussions",
+                "issues": "https://github.com/Slowlyo/owl-admin/issues",
+                "source": "https://github.com/slowlyo/owl-admin/tree/v4.0.9",
+                "wiki": "https://doc.owladmin.com/"
+            },
+            "install-path": "../slowlyo/owl-admin"
+        },
+        {
             "name": "spatie/backtrace",
             "version": "1.7.1",
             "version_normalized": "1.7.1.0",
