@@ -9,6 +9,7 @@
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "predis/predis": "^2.3",
         "rap2hpoutre/laravel-log-viewer": "^2.5",
         "slowlyo/owl-admin": "^4.0",
         "slowlyo/owl-amis-json-parse": "^1.1",

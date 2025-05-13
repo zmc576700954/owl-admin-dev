@@ -1,17 +1,17 @@
 /*
  Navicat Premium Dump SQL
 
- Source Server         : localhost
+ Source Server         : dockerMysql
  Source Server Type    : MySQL
- Source Server Version : 100432 (10.4.32-MariaDB)
- Source Host           : localhost:3306
- Source Schema         : owladmindev
+ Source Server Version : 80405 (8.4.5)
+ Source Host           : 127.0.0.1:3308
+ Source Schema         : owl_admin_dev
 
  Target Server Type    : MySQL
- Target Server Version : 100432 (10.4.32-MariaDB)
+ Target Server Version : 80405 (8.4.5)
  File Encoding         : 65001
 
- Date: 29/04/2025 10:58:11
+ Date: 13/05/2025 15:19:19
 */
 
 SET NAMES utf8mb4;
@@ -31,11 +31,39 @@ CREATE TABLE `admin_apis`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_apis
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for admin_code_generators
+-- ----------------------------
+DROP TABLE IF EXISTS `admin_code_generators`;
+CREATE TABLE `admin_code_generators`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '名称',
+  `table_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '表名',
+  `primary_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '主键名',
+  `model_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '模型名',
+  `controller_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '控制器名',
+  `service_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '服务名',
+  `columns` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '字段信息',
+  `need_timestamps` tinyint NULL DEFAULT 0 COMMENT '是否需要时间戳',
+  `soft_delete` tinyint NULL DEFAULT 0 COMMENT '是否需要软删除',
+  `needs` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '需要生成的代码',
+  `menu_info` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '菜单信息',
+  `page_info` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '页面信息',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成器' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of admin_code_generators
+-- ----------------------------
+INSERT INTO `admin_code_generators` VALUES (1, '用户管理', 'users', 'id', 'App/Models/User', 'App/Admin/Controllers/UserController', 'App/Services/UserService', '[{\"name\":\"name\",\"type_name\":\"varchar\",\"type\":\"string\",\"collation\":\"utf8mb4_unicode_ci\",\"nullable\":false,\"default\":null,\"auto_increment\":false,\"comment\":\"Name\",\"generation\":null},{\"name\":\"email\",\"type_name\":\"varchar\",\"type\":\"string\",\"collation\":\"utf8mb4_unicode_ci\",\"nullable\":false,\"default\":null,\"auto_increment\":false,\"comment\":\"Email\",\"generation\":null},{\"name\":\"email_verified_at\",\"type_name\":\"timestamp\",\"type\":\"timestamp\",\"collation\":null,\"nullable\":true,\"default\":null,\"auto_increment\":false,\"comment\":\"EmailVerifiedAt\",\"generation\":null},{\"name\":\"password\",\"type_name\":\"varchar\",\"type\":\"string\",\"collation\":\"utf8mb4_unicode_ci\",\"nullable\":false,\"default\":null,\"auto_increment\":false,\"comment\":\"Password\",\"generation\":null},{\"name\":\"remember_token\",\"type_name\":\"varchar\",\"type\":\"string\",\"collation\":\"utf8mb4_unicode_ci\",\"nullable\":true,\"default\":null,\"auto_increment\":false,\"comment\":\"RememberToken\",\"generation\":null}]', 1, 1, '[\"need_database_migration\",\"need_create_table\",\"need_model\",\"need_controller\",\"need_service\"]', '{\"enabled\":1,\"parent_id\":0,\"icon\":\"ph:circle\",\"title\":\"\\u7528\\u6237\\u7ba1\\u7406\",\"route\":\"\\/users\"}', '{\"dialog_form\":\"dialog\",\"row_actions\":[\"create\",\"show\",\"edit\",\"delete\",\"batch_delete\"],\"dialog_size\":\"md\",\"list_display_created_at\":1,\"list_display_updated_at\":1}', '2025-05-13 15:15:19', '2025-05-13 15:15:19');
 
 -- ----------------------------
 -- Table structure for admin_dict
@@ -56,7 +84,7 @@ CREATE TABLE `admin_dict`  (
   INDEX `admin_dict_key_index`(`key` ASC) USING BTREE,
   INDEX `admin_dict_enabled_index`(`enabled` ASC) USING BTREE,
   INDEX `admin_dict_sort_index`(`sort` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '数据字典' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '数据字典' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_dict
@@ -74,7 +102,7 @@ CREATE TABLE `admin_extensions`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_extensions_name_unique`(`name` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_extensions
@@ -113,7 +141,7 @@ CREATE TABLE `admin_menus`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_menus
@@ -128,6 +156,7 @@ INSERT INTO `admin_menus` VALUES (7, 2, 0, 'admin_setting', 'akar-icons:settings
 INSERT INTO `admin_menus` VALUES (8, 0, 1, '数据字典', 'fluent-mdl2:dictionary', '/admin_dict', 1, 1, 0, NULL, NULL, NULL, 0, 'slowlyo.owl-dict', '2025-04-18 07:44:19', '2025-04-18 07:44:19');
 INSERT INTO `admin_menus` VALUES (9, 0, 2, '系统日志', 'octicon:log-24', '/owl-log-viewer', 1, 1, 0, NULL, NULL, NULL, 0, 'slowlyo.owl-log-viewer', '2025-04-18 07:45:59', '2025-04-18 07:45:59');
 INSERT INTO `admin_menus` VALUES (11, 0, 3, 'amis json 解析', 'mdi:code-json', '/slow-amis-json-parse', 1, 1, 0, NULL, NULL, NULL, 0, 'slowlyo.owl-amis-json-parse', '2025-04-18 07:59:13', '2025-04-18 07:59:13');
+INSERT INTO `admin_menus` VALUES (17, 0, 100, '用户管理', 'ph:circle', '/users', 1, 1, 0, NULL, NULL, NULL, 0, NULL, '2025-05-13 15:15:47', '2025-05-13 15:15:47');
 
 -- ----------------------------
 -- Table structure for admin_pages
@@ -141,7 +170,7 @@ CREATE TABLE `admin_pages`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_pages
@@ -157,7 +186,7 @@ CREATE TABLE `admin_permission_menu`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   INDEX `admin_permission_menu_permission_id_menu_id_index`(`permission_id` ASC, `menu_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_permission_menu
@@ -192,7 +221,7 @@ CREATE TABLE `admin_permissions`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_permissions_name_unique`(`name` ASC) USING BTREE,
   UNIQUE INDEX `admin_permissions_slug_unique`(`slug` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_permissions
@@ -220,7 +249,7 @@ CREATE TABLE `admin_relationships`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_relationships
@@ -236,7 +265,7 @@ CREATE TABLE `admin_role_permissions`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   INDEX `admin_role_permissions_role_id_permission_id_index`(`role_id` ASC, `permission_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_role_permissions
@@ -259,7 +288,7 @@ CREATE TABLE `admin_role_users`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   INDEX `admin_role_users_role_id_user_id_index`(`role_id` ASC, `user_id` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_role_users
@@ -279,7 +308,7 @@ CREATE TABLE `admin_roles`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_roles_name_unique`(`name` ASC) USING BTREE,
   UNIQUE INDEX `admin_roles_slug_unique`(`slug` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_roles
@@ -295,7 +324,7 @@ CREATE TABLE `admin_settings`  (
   `values` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_settings
@@ -325,7 +354,7 @@ CREATE TABLE `admin_users`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `admin_users_username_unique`(`username` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of admin_users
@@ -341,7 +370,7 @@ CREATE TABLE `cache`  (
   `value` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` int NOT NULL,
   PRIMARY KEY (`key`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of cache
@@ -363,7 +392,7 @@ CREATE TABLE `cache_locks`  (
   `owner` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` int NOT NULL,
   PRIMARY KEY (`key`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of cache_locks
@@ -380,10 +409,10 @@ CREATE TABLE `failed_jobs`  (
   `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `failed_jobs_uuid_unique`(`uuid` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of failed_jobs
@@ -405,7 +434,7 @@ CREATE TABLE `job_batches`  (
   `created_at` int NOT NULL,
   `finished_at` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of job_batches
@@ -425,7 +454,7 @@ CREATE TABLE `jobs`  (
   `created_at` int UNSIGNED NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `jobs_queue_index`(`queue` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jobs
@@ -440,7 +469,7 @@ CREATE TABLE `migrations`  (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of migrations
@@ -455,7 +484,7 @@ CREATE TABLE `password_reset_tokens`  (
   `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`email`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of password_reset_tokens
@@ -479,13 +508,13 @@ CREATE TABLE `personal_access_tokens`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `personal_access_tokens_token_unique`(`token` ASC) USING BTREE,
   INDEX `personal_access_tokens_tokenable_type_tokenable_id_index`(`tokenable_type` ASC, `tokenable_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of personal_access_tokens
 -- ----------------------------
 INSERT INTO `personal_access_tokens` VALUES (1, 'Slowlyo\\OwlAdmin\\Models\\AdminUser', 1, 'admin', '9d769891a5a9045a73704c0f203c656aedf244bbed08b39426f700a1b9e04b80', '[\"*\"]', '2025-04-29 02:21:22', NULL, '2025-04-18 03:17:05', '2025-04-29 02:21:22');
-INSERT INTO `personal_access_tokens` VALUES (2, 'Slowlyo\\OwlAdmin\\Models\\AdminUser', 1, 'admin', 'fb3110a7cb1f6c6baf14e5461279b909e791ccab011ae1458de8ebb0f438b161', '[\"*\"]', '2025-04-29 10:58:02', NULL, '2025-04-29 10:23:07', '2025-04-29 10:58:02');
+INSERT INTO `personal_access_tokens` VALUES (2, 'Slowlyo\\OwlAdmin\\Models\\AdminUser', 1, 'admin', 'fb3110a7cb1f6c6baf14e5461279b909e791ccab011ae1458de8ebb0f438b161', '[\"*\"]', '2025-05-13 15:18:26', NULL, '2025-04-29 10:23:07', '2025-05-13 15:18:26');
 
 -- ----------------------------
 -- Table structure for sessions
@@ -501,7 +530,7 @@ CREATE TABLE `sessions`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `sessions_user_id_index`(`user_id` ASC) USING BTREE,
   INDEX `sessions_last_activity_index`(`last_activity` ASC) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sessions
@@ -527,7 +556,7 @@ CREATE TABLE `telescope_entries`  (
   INDEX `telescope_entries_family_hash_index`(`family_hash` ASC) USING BTREE,
   INDEX `telescope_entries_created_at_index`(`created_at` ASC) USING BTREE,
   INDEX `telescope_entries_type_should_display_on_index_index`(`type` ASC, `should_display_on_index` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 801 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 801 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of telescope_entries
@@ -543,7 +572,7 @@ CREATE TABLE `telescope_entries_tags`  (
   PRIMARY KEY (`entry_uuid`, `tag`) USING BTREE,
   INDEX `telescope_entries_tags_tag_index`(`tag` ASC) USING BTREE,
   CONSTRAINT `telescope_entries_tags_ibfk_1` FOREIGN KEY (`entry_uuid`) REFERENCES `telescope_entries` (`uuid`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of telescope_entries_tags
@@ -556,7 +585,7 @@ DROP TABLE IF EXISTS `telescope_monitoring`;
 CREATE TABLE `telescope_monitoring`  (
   `tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`tag`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of telescope_monitoring
@@ -577,7 +606,7 @@ CREATE TABLE `users`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `users_email_unique`(`email` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
