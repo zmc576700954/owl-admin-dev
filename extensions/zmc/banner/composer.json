@@ -1,0 +1,33 @@
+{
+    "name": "zmc/banner",
+    "alias": "轮播图管理",
+    "description": "轮播图分类和轮播图添加",
+    "type": "library",
+    "version": "1.0.0",
+    "keywords": ["owl-admin", "extension", "banner"],
+    "homepage": "https://github.com/zmc/banner",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhumingchen",
+            "email": "zmc576700954@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "slowlyo/owl-admin": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zmc\\Banner\\": "src/"
+        }
+    },
+    "extra": {
+        "owl-admin": "Zmc\\Banner\\BannerServiceProvider",
+        "laravel": {
+            "providers": [
+                "Zmc\\Banner\\BannerServiceProvider"
+            ]
+        }
+    }
+}

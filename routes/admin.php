@@ -19,5 +19,9 @@ Route::group([
 ], function (Router $router) {
     // 用户管理
     $router->resource('users', \App\Admin\Controllers\UserController::class);
+    // 轮播图分类
+    $router->resource('banner_categories', \Zmc\Banner\Http\Controllers\BannerCategorieController::class);
+    // 轮播图设置
+    $router->resource('banners', \Zmc\Banner\Http\Controllers\BannerController::class);
 
 });
