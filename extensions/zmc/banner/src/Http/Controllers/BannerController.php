@@ -42,7 +42,7 @@ class BannerController extends AdminController
 	{
 		return $this->baseForm()->body([
 			amis()->SelectControl('category_id', $this->trans('category_name'))
-                ->source(admin_url('/banner_categories/categoryList'))
+                ->source(admin_url('/banner_categories/bannerCategory'))
                 ->clearable()
                 ->required()
                 ->valueField('id')

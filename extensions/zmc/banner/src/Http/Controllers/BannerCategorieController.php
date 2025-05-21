@@ -60,7 +60,7 @@ class BannerCategorieController extends AdminController
         return BannerServiceProvider::trans('zmc-banner.' . $key);
     }
 
-    public function categoryList()
+    public function bannerCategory()
     {
         return $this->response()->success($this->service->categoryList());
     }

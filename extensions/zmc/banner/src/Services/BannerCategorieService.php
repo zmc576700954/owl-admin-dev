@@ -17,8 +17,6 @@ class BannerCategorieService extends AdminService
 
     public function categoryList($where = [], $order = [])
     {
-        return $this->query()->where($where)->orderBy($order[0], $order[1])->get()
-            ->map(fn($item) => $item->only(['id', 'name']))
-            ->toArray();
+        return BannerCategorie::where($where)->get()->toArray();
     }
 }

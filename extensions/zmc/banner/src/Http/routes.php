@@ -3,6 +3,6 @@
 use Zmc\Banner\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/banner_categories/categoryList', [\Zmc\Banner\Http\Controllers\BannerCategorieController::class, 'categoryList']);
-Route::resource('banner_categories', \Zmc\Banner\Http\Controllers\BannerCategorieController::class);
-Route::resource('banners', \Zmc\Banner\Http\Controllers\BannerController::class);
+Route::get('/banner_categories/bannerCategory', [Controllers\BannerCategorieController::class, 'bannerCategory']);
+Route::resource('banner_categories', Controllers\BannerCategorieController::class);
+Route::resource('banners', Controllers\BannerController::class);
