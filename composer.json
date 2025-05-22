@@ -1,5 +1,5 @@
 {
-    "name": "zmc/owl-admin-dev",
+    "name": "zhumingchen/owl-admin-dev",
     "type": "project",
     "description": "The skeleton application for the OwlAdmin framework.",
     "keywords": ["laravel", "framework", "owl-admin"],
