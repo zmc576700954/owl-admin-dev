@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'laravel/laravel',
+        'name' => 'zhumingchen/owl-admin-dev',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '5237739e20099694623a4c1e905fae7ef11d664b',
+        'reference' => '7a8c622a92ccab310c3e490f468586e55545fc5b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(
@@ -126,9 +126,9 @@
             'dev_requirement' => false,
         ),
         'guzzlehttp/guzzle' => array(
-            'pretty_version' => '7.9.2',
-            'version' => '7.9.2.0',
-            'reference' => 'd281ed313b989f213357e3be1a179f02196ac99b',
+            'pretty_version' => '7.9.3',
+            'version' => '7.9.3.0',
+            'reference' => '7b2f29fe81dc4da0ca0ea7d42107a0845946ea77',
             'type' => 'library',
             'install_path' => __DIR__ . '/../guzzlehttp/guzzle',
             'aliases' => array(),
@@ -396,17 +396,6 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/framework',
             'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '5237739e20099694623a4c1e905fae7ef11d664b',
-            'type' => 'project',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(
-                0 => '11.x-dev',
-            ),
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -1442,6 +1431,17 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../webmozart/assert',
             'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'zhumingchen/owl-admin-dev' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '7a8c622a92ccab310c3e490f468586e55545fc5b',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(
+                0 => '11.x-dev',
+            ),
             'dev_requirement' => false,
         ),
     ),
