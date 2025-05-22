@@ -9,7 +9,6 @@ class BannerServiceProvider extends ServiceProvider
 {
     protected $menu = [
         [
-            'parent'   => '',
             'title'    => '轮播图管理',
             'url'      => '/banner',
             'url_type' => '1',
