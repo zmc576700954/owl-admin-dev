@@ -4,16 +4,18 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * AjaxAction
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class AjaxAction extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'button');
-        $this->set('actionType', 'ajax');
+$this->set('actionType', 'ajax');
+
+
     }
 
     /**
@@ -137,6 +139,14 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
+     * 是否在动作结束前禁用按钮
+     */
+    public function disabledOnAction($value = true)
+    {
+        return $this->set('disabledOnAction', $value);
+    }
+
+    /**
      * 禁用时的文案提示。
      */
     public function disabledTip($value = '')
@@ -153,7 +163,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function feedback($value = '')
     {
@@ -209,7 +219,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function ignoreConfirm($value = true)
     {
@@ -281,7 +291,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function primary($value = true)
     {
@@ -289,7 +299,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function redirect($value = '')
     {
@@ -393,7 +403,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -409,6 +419,14 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
+     * 
+     */
+    public function tabIndex($value = '')
+    {
+        return $this->set('tabIndex', $value);
+    }
+
+    /**
      * 可以指定让谁来触发这个动作。
      */
     public function target($value = '')
@@ -417,7 +435,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -425,7 +443,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -433,7 +451,7 @@ class AjaxAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function tooltip($value = '')
     {

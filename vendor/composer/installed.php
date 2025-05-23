@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'laravel/laravel',
+        'name' => 'zhumingchen/owl-admin-dev',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '5237739e20099694623a4c1e905fae7ef11d664b',
+        'reference' => 'b50d9f9fc22a38eb250cfca7aa26029fd3a9dcc0',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(
@@ -396,17 +396,6 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/framework',
             'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '5237739e20099694623a4c1e905fae7ef11d664b',
-            'type' => 'project',
-            'install_path' => __DIR__ . '/../../',
-            'aliases' => array(
-                0 => '11.x-dev',
-            ),
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -1022,9 +1011,9 @@
             'dev_requirement' => false,
         ),
         'slowlyo/owl-admin' => array(
-            'pretty_version' => 'v4.0.9',
-            'version' => '4.0.9.0',
-            'reference' => '0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774',
+            'pretty_version' => 'v4.2.4',
+            'version' => '4.2.4.0',
+            'reference' => 'f62e8d047f62dcf121ec703703aa6eb40ea75e84',
             'type' => 'library',
             'install_path' => __DIR__ . '/../slowlyo/owl-admin',
             'aliases' => array(),
@@ -1442,6 +1431,17 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../webmozart/assert',
             'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'zhumingchen/owl-admin-dev' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'b50d9f9fc22a38eb250cfca7aa26029fd3a9dcc0',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(
+                0 => '11.x-dev',
+            ),
             'dev_requirement' => false,
         ),
     ),

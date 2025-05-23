@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * TransferPicker 穿梭器的弹框形态 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/transfer-picker
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class TransferPickerControl extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'transfer-picker');
+
+
     }
 
     /**
@@ -77,6 +79,14 @@ class TransferPickerControl extends BaseRenderer
     public function clearValueOnHidden($value = true)
     {
         return $this->set('clearValueOnHidden', $value);
+    }
+
+    /**
+     * source从数据域取值时，数据域值变化后是否自动清空
+     */
+    public function clearValueOnSourceChange($value = true)
+    {
+        return $this->set('clearValueOnSourceChange', $value);
     }
 
     /**
@@ -152,7 +162,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -288,7 +298,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -408,7 +418,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function loadingConfig($value = '')
     {
@@ -584,7 +594,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -752,7 +762,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -784,7 +794,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -792,7 +802,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function type($value = 'transfer-picker')
     {
@@ -832,7 +842,7 @@ class TransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

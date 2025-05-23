@@ -7,7 +7,6 @@ use Slowlyo\Support\SqlRecord;
 use Illuminate\Support\Facades\Auth;
 use Slowlyo\OwlAdmin\Extend\Manager;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Schema;
 use Slowlyo\OwlAdmin\Traits\AssetsTrait;
 use Slowlyo\OwlAdmin\Extend\ServiceProvider;
 use Psr\Container\NotFoundExceptionInterface;
@@ -23,6 +22,7 @@ use Slowlyo\OwlAdmin\Support\{Composer,
     Cores\Permission,
     Cores\JsonResponse,
     Cores\Relationships};
+use Slowlyo\OwlAdmin\Support\Cores\Database;
 
 class Admin
 {
@@ -233,18 +233,11 @@ class Admin
 
     public static function hasTable($table)
     {
-        $key = 'admin_has_table_' . $table;
-        if (cache()->has($key)) {
-            return true;
+        if (!Database::isConnected()) {
+            return false;
         }
 
-        $has = Schema::hasTable($table);
-
-        if ($has) {
-            cache()->forever($key, true);
-        }
-
-        return $has;
+        return in_array($table, Database::getTables());
     }
 
     public static function version()

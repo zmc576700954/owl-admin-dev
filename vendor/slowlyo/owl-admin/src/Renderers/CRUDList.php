@@ -4,16 +4,18 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * CRUDList
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class CRUDList extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('mode', 'list');
-        $this->set('type', 'crud');
+$this->set('type', 'crud');
+
+
     }
 
     /**
@@ -169,7 +171,7 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function filterDefaultVisible($value = true)
     {
@@ -177,7 +179,7 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function filterTogglable($value = true)
     {
@@ -273,6 +275,22 @@ class CRUDList extends BaseRenderer
     }
 
     /**
+     * 索引条偏移量
+     */
+    public function indexBarOffset($value = '')
+    {
+        return $this->set('indexBarOffset', $value);
+    }
+
+    /**
+     * 索引依据字段
+     */
+    public function indexField($value = '')
+    {
+        return $this->set('indexField', $value);
+    }
+
+    /**
      * 初始是否拉取
      */
     public function initFetch($value = true)
@@ -346,7 +364,7 @@ class CRUDList extends BaseRenderer
 
     /**
      * 当配置 keepItemSelectionOnPageChange 时有用，用来配置已勾选项的文案。 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function labelTpl($value = '')
     {
@@ -378,7 +396,15 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     *
+     * 加载更多配置
+     */
+    public function loadMoreProps($value = '')
+    {
+        return $this->set('loadMoreProps', $value);
+    }
+
+    /**
+     * 
      */
     public function loadingConfig($value = '')
     {
@@ -386,7 +412,7 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     * 自定义搜索匹配函数，当开启loadDataOnce时，会基于该函数计算的匹配结果进行过滤，主要用于处理列字段类型较为复杂或者字段值格式和后端返回不一致的场景
+     * 自定义搜索匹配函数，当开启loadDataOnce时，会基于该函数计算的匹配结果进行过滤，主要用于处理列字段类型较为复杂或者字段值格式和后端返回不一致的场景参数说明 * `items` 当前表格数据  * `itemsRaw` 当前表格数据（未处理）  * `options` 配置  * `options.query` 查询条件  * `options.columns` 列配置  * `options.matchSorter` 系统默认的排序方法
      */
     public function matchFunc($value = '')
     {
@@ -407,6 +433,14 @@ class CRUDList extends BaseRenderer
     public function mode($value = 'list')
     {
         return $this->set('mode', $value);
+    }
+
+    /**
+     * 控制是否多选，默认为 false
+     */
+    public function multiple($value = true)
+    {
+        return $this->set('multiple', $value);
     }
 
     /**
@@ -499,7 +533,7 @@ class CRUDList extends BaseRenderer
 
     /**
      * 无数据提示 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function placeholder($value = '')
     {
@@ -531,6 +565,14 @@ class CRUDList extends BaseRenderer
     }
 
     /**
+     * 是否开启行选择功能, 默认为 false 开启后将支持行选择功能,需要结合事件动作使用
+     */
+    public function selectable($value = true)
+    {
+        return $this->set('selectable', $value);
+    }
+
+    /**
      * 是否显示底部
      */
     public function showFooter($value = true)
@@ -544,6 +586,14 @@ class CRUDList extends BaseRenderer
     public function showHeader($value = true)
     {
         return $this->set('showHeader', $value);
+    }
+
+    /**
+     * 是否显示右侧字母索引条
+     */
+    public function showIndexBar($value = true)
+    {
+        return $this->set('showIndexBar', $value);
     }
 
     /**
@@ -619,7 +669,7 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -635,7 +685,7 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function stopAutoRefreshWhenModalIsOpen($value = true)
     {
@@ -667,7 +717,7 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -675,7 +725,7 @@ class CRUDList extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -684,11 +734,35 @@ class CRUDList extends BaseRenderer
 
     /**
      * 标题 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function title($value = '')
     {
         return $this->set('title', $value);
+    }
+
+    /**
+     * 
+     */
+    public function toolbar($value = '')
+    {
+        return $this->set('toolbar', $value);
+    }
+
+    /**
+     * 工具栏是否为 inline 模式
+     */
+    public function toolbarInline($value = true)
+    {
+        return $this->set('toolbarInline', $value);
+    }
+
+    /**
+     * 设置总条数的字段名。
+     */
+    public function totalField($value = '')
+    {
+        return $this->set('totalField', $value);
     }
 
     /**

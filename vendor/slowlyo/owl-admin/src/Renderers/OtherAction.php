@@ -4,16 +4,18 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * OtherAction
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class OtherAction extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'button');
-        $this->set('actionType', 'prev');
+$this->set('actionType', 'prev');
+
+
     }
 
     /**
@@ -126,6 +128,14 @@ class OtherAction extends BaseRenderer
     public function disabledOn($value = '')
     {
         return $this->set('disabledOn', $value);
+    }
+
+    /**
+     * 是否在动作结束前禁用按钮
+     */
+    public function disabledOnAction($value = true)
+    {
+        return $this->set('disabledOnAction', $value);
     }
 
     /**
@@ -249,7 +259,7 @@ class OtherAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function primary($value = true)
     {
@@ -345,7 +355,7 @@ class OtherAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -361,6 +371,14 @@ class OtherAction extends BaseRenderer
     }
 
     /**
+     * 
+     */
+    public function tabIndex($value = '')
+    {
+        return $this->set('tabIndex', $value);
+    }
+
+    /**
      * 可以指定让谁来触发这个动作。
      */
     public function target($value = '')
@@ -369,7 +387,7 @@ class OtherAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -377,7 +395,7 @@ class OtherAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -385,7 +403,7 @@ class OtherAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function tooltip($value = '')
     {

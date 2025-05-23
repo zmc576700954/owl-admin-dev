@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * Panel渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/panel
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class Panel extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'panel');
+
+
     }
 
     /**
@@ -32,7 +34,7 @@ class Panel extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function actionsControlClassName($value = '')
     {
@@ -64,7 +66,7 @@ class Panel extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function bodyControlClassName($value = '')
     {
@@ -240,7 +242,7 @@ class Panel extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -272,7 +274,7 @@ class Panel extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -280,7 +282,7 @@ class Panel extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -289,7 +291,7 @@ class Panel extends BaseRenderer
 
     /**
      * Panel 标题 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function title($value = '')
     {

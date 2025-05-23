@@ -4,7 +4,9 @@ namespace Slowlyo\OwlAdmin\Support\Cores;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Slowlyo\OwlAdmin\Models\AdminRole;
 use Illuminate\Database\Schema\Blueprint;
+use Slowlyo\OwlAdmin\Admin;
 
 class Database
 {
@@ -235,7 +237,7 @@ class Database
         $adminRole->truncate();
         $adminRole->insert($data([
             'name' => 'Administrator',
-            'slug' => 'administrator',
+            'slug' => AdminRole::SuperAdministrator,
         ]));
 
         // 用户 - 角色绑定
@@ -342,17 +344,77 @@ class Database
         $this->fillCodeGeneratorFields();
     }
 
-    public static function getTables()
+    public static function isConnected()
     {
         try {
-            return collect(json_decode(json_encode(Schema::getAllTables()), true))
-                ->map(fn($i) => config('database.default') == 'sqlite' ? $i['name'] : array_shift($i))
-                ->toArray();
-        } catch (\Throwable $e) {
+            $connection = Admin::config('admin.database.connection');
+            DB::connection($connection)->getPdo();
+
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    public static function getTables()
+    {
+        return Admin::context()->remember('admin_all_tables', function () {
+            $connection = Admin::config('admin.database.connection');
+            $db = DB::connection($connection);
+            $list = match ($connection) {
+                // sqlite
+                'sqlite' => $db->getPdo()->query("SELECT name FROM sqlite_master WHERE type='table';")->fetchAll(),
+                // pgsql
+                'pgsql' => $db->getPdo()->query("SELECT tablename FROM pg_tables WHERE schemaname='public';")->fetchAll(),
+                // mysql
+                default => $db->getPdo()->query('SHOW TABLES')->fetchAll(),
+            };
+
+            return array_map(fn($i) => self::getTableName(array_shift($i), true), $list);
+        });
+    }
+
+    public static function getTableName($table = '', $removePrefix = false, $connection = '')
+    {
+        if (blank($connection)) {
+            $connection = Admin::config('admin.database.connection');
+        }
+        $prefix = config("database.connections.{$connection}.prefix");
+
+        if ($removePrefix) {
+            return \Illuminate\Support\Str::replaceFirst($prefix, '', $table);
         }
 
-        // laravel 11+
-        return array_column(Schema::getTables(), 'name');
+        return $prefix . $table;
+    }
+
+    public static function getTableColumns($table, $connection = '')
+    {
+        if (blank($connection)) {
+            $connection = Admin::config('admin.database.connection');
+        }
+
+        $table = self::getTableName($table, false, $connection);
+
+        $db = DB::connection($connection);
+
+        $columns = match ($connection) {
+            // sqlite
+            'sqlite' => $db->getPdo()->query("PRAGMA table_info('{$table}')")->fetchAll(),
+            // pgsql
+            'pgsql' => $db->getPdo()->query("SELECT column_name, data_type, character_maximum_length, column_default, is_nullable FROM information_schema.columns WHERE table_name = '{$table}'")->fetchAll(),
+            // mysql
+            default => $db->getPdo()->query("SHOW COLUMNS FROM `{$table}`")->fetchAll(),
+        };
+
+        // 提取字段名
+        $columnNames = match ($connection) {
+            'sqlite' => array_map(fn($column) => $column['name'], $columns),
+            'pgsql' => array_map(fn($column) => $column['column_name'], $columns),
+            default => array_map(fn($column) => $column['Field'], $columns),
+        };
+
+        return $columnNames;
     }
 
     /**
@@ -372,6 +434,6 @@ class Database
             'list_component_property'   => '[{"key":"TableColumn","value":[{"name":"searchable","value":"1"}],"label":"文本(带搜索)"},{"key":"TableColumn","value":[{"name":"type","value":"image"},{"name":"enlargeAble","value":"1"}],"label":"单图"},{"key":"TableColumn","value":[{"name":"quickEdit","value":"{\"type\":\"switch\",\"mode\":\"inline\",\"saveImmediately\":true}"}],"label":"开关"}]',
         ];
 
-        settings()->setMany(array_map(fn($i)=>json_decode($i, true), $data));
+        settings()->setMany(array_map(fn($i) => json_decode($i, true), $data));
     }
 }

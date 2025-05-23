@@ -2,6 +2,8 @@
 
 namespace Slowlyo\OwlAdmin\Support\CodeGenerator;
 
+use Illuminate\Support\Str;
+
 class FilterGenerator extends BaseGenerator
 {
     public static array $filterMap = [
@@ -50,6 +52,7 @@ class FilterGenerator extends BaseGenerator
         $components = [];
         foreach ($filters as $filter) {
             $filterType = data_get($filter, 'filter.filter_type', 'TextControl');
+            $filter['input_label'] = Str::replace("'", "\\'", $filter['input_label']);
             $item       = "amis()->{$filterType}('{$filter['input_name']}', '{$filter['input_label']}')";
             if ($property = data_get($filter, 'filter.filter_property')) {
                 $item .= $this->buildComponentProperty($property);
@@ -98,7 +101,7 @@ class FilterGenerator extends BaseGenerator
                 $value = "'{$value}'";
             }
         } else {
-            $value = "\$this->request->input('{$filter['input_name']}')";
+            $value = "filled(\$this->request->input('{$filter['input_name']}'))";
         }
         $name     = $column['name'];
         $arrValue = "safe_explode(',', $value)";

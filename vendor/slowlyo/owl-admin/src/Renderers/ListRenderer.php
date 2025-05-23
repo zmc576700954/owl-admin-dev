@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * List 列表展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class ListRenderer extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'list');
+
+
     }
 
     /**
@@ -136,6 +138,22 @@ class ListRenderer extends BaseRenderer
     }
 
     /**
+     * 索引条偏移量
+     */
+    public function indexBarOffset($value = '')
+    {
+        return $this->set('indexBarOffset', $value);
+    }
+
+    /**
+     * 索引依据字段
+     */
+    public function indexField($value = '')
+    {
+        return $this->set('indexField', $value);
+    }
+
+    /**
      * 点击列表项的行为 (点击列表项的行为)
      */
     public function itemAction($value = '')
@@ -177,7 +195,7 @@ class ListRenderer extends BaseRenderer
 
     /**
      * 无数据提示 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function placeholder($value = '')
     {
@@ -198,6 +216,14 @@ class ListRenderer extends BaseRenderer
     public function showHeader($value = true)
     {
         return $this->set('showHeader', $value);
+    }
+
+    /**
+     * 是否显示右侧字母索引条
+     */
+    public function showIndexBar($value = true)
+    {
+        return $this->set('showIndexBar', $value);
     }
 
     /**
@@ -265,7 +291,7 @@ class ListRenderer extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -281,7 +307,7 @@ class ListRenderer extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -289,7 +315,7 @@ class ListRenderer extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -298,7 +324,7 @@ class ListRenderer extends BaseRenderer
 
     /**
      * 标题 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function title($value = '')
     {

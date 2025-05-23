@@ -23,14 +23,22 @@ class AdminMenuService extends AdminService
 
     public function getTree()
     {
-        $list = $this->query()->orderBy('custom_order')->get()->toArray();
+        $title = request('title');
+        $url = request('url');
+
+        $list = $this->query()
+            ->when($title, fn($query) => $query->where('title', 'like', '%' . $title . '%'))
+            ->when($url, fn($query) => $query->where('url', 'like', '%' . $url . '%'))
+            ->orderBy('custom_order')
+            ->get()
+            ->toArray();
 
         return array2tree($list);
     }
 
     public function parentIsChild($id, $parent_id)
     {
-        if($id == $parent_id){
+        if ($id == $parent_id) {
             return true;
         }
 
@@ -51,9 +59,9 @@ class AdminMenuService extends AdminService
     {
         $columns = $this->getTableColumns();
 
-        $parent_id = Arr::get($data, 'parent_id');
+        $parent_id = Arr::get($data, 'parent_id') ?: 0;
         if ($parent_id != 0) {
-            amis_abort_if($this->parentIsChild($primaryKey, $parent_id), admin_trans('admin.admin_menu.parent_id_not_allow'));
+            admin_abort_if($this->parentIsChild($primaryKey, $parent_id), admin_trans('admin.admin_menu.parent_id_not_allow'));
         }
 
         $model = $this->query()->whereKey($primaryKey)->first();
@@ -132,13 +140,16 @@ class AdminMenuService extends AdminService
 
         $list = collect($this->refreshOrder($ids))->transform(fn($i) => $i * 10)->all();
 
-        $sql = 'update ' . $this->getModel()->getTable() . ' set `custom_order` = case id ';
+        $sql = 'update ' . $this->getModel()->getTable() . ' set custom_order = case id ';
 
+        $params = [];
         foreach ($list as $k => $v) {
-            $sql .= " when {$k} then {$v} ";
+            $params[] = $k;
+            $params[] = $v;
+            $sql .= " when ? then ? ";
         }
 
-        return DB::update($sql . ' else `custom_order` end');
+        return DB::update($sql . ' else custom_order end', $params);
     }
 
     public function refreshOrder($list)

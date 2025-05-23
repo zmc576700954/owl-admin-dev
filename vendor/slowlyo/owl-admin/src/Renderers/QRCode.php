@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * 二维码展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/qrcode
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class QRCode extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'qrcode');
+
+
     }
 
     /**
@@ -61,6 +63,38 @@ class QRCode extends BaseRenderer
     public function editorSetting($value = '')
     {
         return $this->set('editorSetting', $value);
+    }
+
+    /**
+     * 码眼边框颜色
+     */
+    public function eyeBorderColor($value = '')
+    {
+        return $this->set('eyeBorderColor', $value);
+    }
+
+    /**
+     * 码眼边框大小 可选值: default | sm | xs
+     */
+    public function eyeBorderSize($value = '')
+    {
+        return $this->set('eyeBorderSize', $value);
+    }
+
+    /**
+     * 码眼内部颜色
+     */
+    public function eyeInnerColor($value = '')
+    {
+        return $this->set('eyeInnerColor', $value);
+    }
+
+    /**
+     * 码眼类型 可选值: default | circle | rounded
+     */
+    public function eyeType($value = '')
+    {
+        return $this->set('eyeType', $value);
     }
 
     /**
@@ -144,6 +178,30 @@ class QRCode extends BaseRenderer
     }
 
     /**
+     * 码点大小 可选值: default | sm | xs
+     */
+    public function pointSize($value = '')
+    {
+        return $this->set('pointSize', $value);
+    }
+
+    /**
+     * 码点大小随机
+     */
+    public function pointSizeRandom($value = true)
+    {
+        return $this->set('pointSizeRandom', $value);
+    }
+
+    /**
+     * 码点类型 可选值: default | circle
+     */
+    public function pointType($value = '')
+    {
+        return $this->set('pointType', $value);
+    }
+
+    /**
      * css 类名 (css类名，配置字符串，或者对象。    className: "red"用对象配置时意味着你能跟表达式一起搭配使用，如：    className: {         "red": "data.progress > 80",         "blue": "data.progress > 60"     })
      */
     public function qrcodeClassName($value = '')
@@ -200,7 +258,7 @@ class QRCode extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -216,7 +274,7 @@ class QRCode extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -224,7 +282,7 @@ class QRCode extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {

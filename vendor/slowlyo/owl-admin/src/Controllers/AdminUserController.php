@@ -2,8 +2,6 @@
 
 namespace Slowlyo\OwlAdmin\Controllers;
 
-use Slowlyo\OwlAdmin\Renderers\Page;
-use Slowlyo\OwlAdmin\Renderers\Form;
 use Slowlyo\OwlAdmin\Services\AdminUserService;
 
 /**
@@ -17,14 +15,37 @@ class AdminUserController extends AdminController
     {
         $crud = $this->baseCRUD()
             ->headerToolbar([
-                $this->createButton(true),
+                $this->createButton('drawer'),
                 ...$this->baseHeaderToolBar(),
             ])
-            ->filter($this->baseFilter()->body(
-                amis()->TextControl('keyword', admin_trans('admin.keyword'))
+            ->filter($this->baseFilter()->body([
+                amis()->TextControl('username', admin_trans('admin.username'))
                     ->size('md')
-                    ->placeholder(admin_trans('admin.admin_user.search_username'))
-            ))
+                    ->clearable()
+                    ->placeholder(admin_trans('admin.admin_user.search_username')),
+                amis()->TextControl('name', admin_trans('admin.admin_user.name'))
+                    ->size('md')
+                    ->clearable()
+                    ->placeholder(admin_trans('admin.admin_user.search_name')),
+                amis()->SelectControl('roles', admin_trans('admin.admin_user.roles'))
+                    ->size('md')
+                    ->clearable()
+                    ->searchable()
+                    ->multiple()
+                    ->labelField('name')
+                    ->valueField('id')
+                    ->options($this->service->roleOptions()),
+                amis()->SelectControl('enabled', admin_trans('admin.extensions.card.status'))
+                    ->size('md')
+                    ->clearable()
+                    ->options([
+                        ['label' => admin_trans('admin.extensions.enable'), 'value' => 1],
+                        ['label' => admin_trans('admin.extensions.disable'), 'value' => 0],
+                    ]),
+                amis()->DateRangeControl('created_at', admin_trans('admin.created_at'))
+                    ->format('YYYY-MM-DD')
+                    ->clearable(true)
+            ]))
             ->itemCheckableOn('${id != 1}')
             ->columns([
                 amis()->TableColumn('id', 'ID')->sortable(),
@@ -35,12 +56,17 @@ class AdminUserController extends AdminController
                     amis()->Tag()->label('${name}')->className('my-1')
                 ),
                 amis()->TableColumn('enabled', admin_trans('admin.extensions.card.status'))->quickEdit(
-                    amis()->SwitchControl()->mode('inline')->disabledOn('${id == 1}')->saveImmediately()
+                    amis()->SwitchControl()
+                        ->mode('inline')
+                        ->disabledOn('${id == 1}')
+                        ->saveImmediately()
+                        ->onText(admin_trans('admin.extensions.enable'))
+                        ->offText(admin_trans('admin.extensions.disable'))
                 ),
                 amis()->TableColumn('created_at', admin_trans('admin.created_at'))->type('datetime')->sortable(),
                 $this->rowActions([
-                    $this->rowEditButton(true)
-                        ->hiddenOn('${administrator && ' . !admin_user()->isAdministrator() . '}'),
+                    $this->rowEditButton('drawer')
+                        ->hiddenOn('${administrator && ' . (admin_user()->isAdministrator() ? 'false' : 'true') . '}'),
                     $this->rowDeleteButton()->hiddenOn('${id == 1}'),
                 ]),
             ]);
@@ -50,7 +76,7 @@ class AdminUserController extends AdminController
 
     public function form()
     {
-        return $this->baseForm()->body([
+        return $this->baseForm()->mode('normal')->body([
             amis()->ImageControl('avatar', admin_trans('admin.admin_user.avatar'))->receiver($this->uploadImagePath()),
             amis()->TextControl('username', admin_trans('admin.username'))->required(),
             amis()->TextControl('name', admin_trans('admin.admin_user.name'))->required(),
@@ -63,7 +89,7 @@ class AdminUserController extends AdminController
                 ->valueField('id')
                 ->joinValues(false)
                 ->extractValue()
-                ->disabledOn('${id == 1}')
+                ->hiddenOn('${id == 1}')
                 ->options($this->service->roleOptions()),
             amis()->SwitchControl('enabled', admin_trans('admin.extensions.card.status'))
                 ->onText(admin_trans('admin.extensions.enable'))

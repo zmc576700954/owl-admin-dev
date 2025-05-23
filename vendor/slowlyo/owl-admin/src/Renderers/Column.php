@@ -4,15 +4,15 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * Column
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class Column extends BaseRenderer
 {
     public function __construct()
     {
-
+        
 
     }
 
@@ -86,6 +86,14 @@ class Column extends BaseRenderer
     public function fixed($value = '')
     {
         return $this->set('fixed', $value);
+    }
+
+    /**
+     * 标题内容居左、居中、居右 可选值: left | center | right
+     */
+    public function headerAlign($value = '')
+    {
+        return $this->set('headerAlign', $value);
     }
 
     /**
@@ -177,7 +185,15 @@ class Column extends BaseRenderer
     }
 
     /**
-     *
+     * 列垂直对齐方式 可选值: top | middle | bottom
+     */
+    public function vAlign($value = '')
+    {
+        return $this->set('vAlign', $value);
+    }
+
+    /**
+     * 
      */
     public function width($value = '')
     {

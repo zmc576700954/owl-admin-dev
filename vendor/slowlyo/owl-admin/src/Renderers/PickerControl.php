@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * Picker 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/picker
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class PickerControl extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'picker');
+
+
     }
 
     /**
@@ -61,6 +63,14 @@ class PickerControl extends BaseRenderer
     public function clearValueOnHidden($value = true)
     {
         return $this->set('clearValueOnHidden', $value);
+    }
+
+    /**
+     * source从数据域取值时，数据域值变化后是否自动清空
+     */
+    public function clearValueOnSourceChange($value = true)
+    {
+        return $this->set('clearValueOnSourceChange', $value);
     }
 
     /**
@@ -128,7 +138,7 @@ class PickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -272,7 +282,7 @@ class PickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -309,6 +319,14 @@ class PickerControl extends BaseRenderer
     public function inputClassName($value = '')
     {
         return $this->set('inputClassName', $value);
+    }
+
+    /**
+     * 选中项可删除，默认为true
+     */
+    public function itemClearable($value = true)
+    {
+        return $this->set('itemClearable', $value);
     }
 
     /**
@@ -361,7 +379,7 @@ class PickerControl extends BaseRenderer
 
     /**
      * 可用来生成选中的值的描述文字 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function labelTpl($value = '')
     {
@@ -382,6 +400,14 @@ class PickerControl extends BaseRenderer
     public function modalMode($value = '')
     {
         return $this->set('modalMode', $value);
+    }
+
+    /**
+     * 弹窗的尺寸，可选值为 'sm'、'md'、'lg'、'xl' 可选值: xs | sm | md | lg | xl | full
+     */
+    public function modalSize($value = '')
+    {
+        return $this->set('modalSize', $value);
     }
 
     /**
@@ -505,7 +531,7 @@ class PickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -593,7 +619,7 @@ class PickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -617,7 +643,7 @@ class PickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -665,7 +691,7 @@ class PickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

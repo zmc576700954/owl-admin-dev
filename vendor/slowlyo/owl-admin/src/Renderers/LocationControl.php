@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * Location 选点组件 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/location
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class LocationControl extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'location-picker');
+
+
     }
 
     /**
@@ -56,7 +58,7 @@ class LocationControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -136,6 +138,14 @@ class LocationControl extends BaseRenderer
     }
 
     /**
+     * 是否隐藏地图控制组件，默认为false
+     */
+    public function hideViewControl($value = true)
+    {
+        return $this->set('hideViewControl', $value);
+    }
+
+    /**
      * 输入提示，聚焦的时候显示
      */
     public function hint($value = '')
@@ -160,7 +170,7 @@ class LocationControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -296,7 +306,7 @@ class LocationControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -368,7 +378,7 @@ class LocationControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -392,7 +402,7 @@ class LocationControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -440,7 +450,7 @@ class LocationControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

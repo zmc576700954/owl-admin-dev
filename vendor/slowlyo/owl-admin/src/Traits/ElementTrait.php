@@ -87,7 +87,7 @@ trait ElementTrait
 
             if ($dialog === 'drawer') {
                 $action = amis()->DrawerAction()->drawer(
-                    amis()->Drawer()->title($title)->body($form)->size($dialogSize)
+                    amis()->Drawer()->closeOnEsc()->closeOnOutside()->title($title)->body($form)->size($dialogSize)
                 );
             } else {
                 $action = amis()->DialogAction()->dialog(
@@ -124,7 +124,7 @@ trait ElementTrait
 
             if ($dialog === 'drawer') {
                 $action = amis()->DrawerAction()->drawer(
-                    amis()->Drawer()->title($title)->body($form)->size($dialogSize)
+                    amis()->Drawer()->closeOnEsc()->closeOnOutside()->title($title)->body($form)->size($dialogSize)
                 );
             } else {
                 $action = amis()->DialogAction()->dialog(
@@ -295,8 +295,9 @@ trait ElementTrait
                         ->SelectControl('perPage')
                         ->options(array_map(
                             fn($i) => ['label' => $i . ' ' . admin_trans('admin.per_page_suffix'), 'value' => $i],
-                            [10, 20, 30, 50, 100, 200]
+                            [20, 30, 50, 100, 200]
                         ))
+                        ->selectFirst()
                         ->set('overlayPlacement', 'top')
                         ->onEvent([
                             'change' => [
@@ -347,7 +348,7 @@ trait ElementTrait
      *
      * @return \Slowlyo\OwlAdmin\Renderers\Form
      */
-    protected function baseForm(bool $back = true)
+    protected function baseForm(bool $back = false)
     {
         $path = str_replace(Admin::config('admin.route.prefix'), '', request()->path());
 

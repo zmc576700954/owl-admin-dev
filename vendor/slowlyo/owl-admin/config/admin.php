@@ -56,12 +56,12 @@ return [
     ],
 
     'upload' => [
-        'disk'      => 'public',
+        'disk'      => env('ADMIN_UPLOAD_DISK', 'public'),
         // 文件上传目录
         'directory' => [
-            'image' => 'images',
-            'file'  => 'files',
-            'rich'  => 'rich',
+            'image' => env('ADMIN_UPLOAD_IMAGE_DIRECTORY', 'images'),
+            'file'  => env('ADMIN_UPLOAD_FILE_DIRECTORY', 'files'),
+            'rich'  => env('ADMIN_UPLOAD_RICH_DIRECTORY', 'rich'),
         ],
     ],
 
@@ -71,7 +71,7 @@ return [
     'show_development_tools'               => env('ADMIN_SHOW_DEVELOPMENT_TOOLS', true),
 
     // 是否显示 [权限] 功能中的自动生成按钮
-    'show_auto_generate_permission_button' => env('ADMIN_SHOW_AUTO_GENERATE_PERMISSION_BUTTON', true),
+    'show_auto_generate_permission_button' => env('ADMIN_SHOW_AUTO_GENERATE_PERMISSION_BUTTON', false),
 
     // 扩展
     'extension'                            => [
@@ -114,6 +114,9 @@ return [
 
     'database' => [
         'connection' => env('ADMIN_DB_CONNECTION') ?? env('DB_CONNECTION', 'mysql'),
+
+        // 参与代码生成的链接, 如果为空会获取默认链接
+        'generator'  => []
     ],
 
     'models' => [
