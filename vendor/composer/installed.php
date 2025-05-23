@@ -3,7 +3,7 @@
         'name' => 'zhumingchen/owl-admin-dev',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '65f327bed197336de885a516e8a10b2e36fec01e',
+        'reference' => '10aec9f998ae38c28f9ead54647c9041c9c5eb60',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(
@@ -1423,7 +1423,7 @@
         'zhumingchen/owl-admin-dev' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '65f327bed197336de885a516e8a10b2e36fec01e',
+            'reference' => '10aec9f998ae38c28f9ead54647c9041c9c5eb60',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(
