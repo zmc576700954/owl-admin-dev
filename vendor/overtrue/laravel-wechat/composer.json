@@ -1,0 +1,67 @@
+{
+  "name": "overtrue/laravel-wechat",
+  "description": "微信 SDK for Laravel",
+  "keywords": [
+    "wechat",
+    "weixin",
+    "laravel",
+    "sdk"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "overtrue",
+      "email": "anzhengchao@gmail.com"
+    }
+  ],
+  "require": {
+    "illuminate/container": "^9.0|^10.0|^11.0|^12.0",
+    "w7corp/easywechat": "^6.0.0"
+  },
+  "require-dev": {
+    "laravel/framework": "^10.0",
+    "jetbrains/phpstorm-attributes": "^1.0",
+    "brainmaestro/composer-git-hooks": "dev-master",
+    "laravel/pint": "^1.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Overtrue\\LaravelWeChat\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Overtrue\\LaravelWeChat\\ServiceProvider"
+      ]
+    },
+    "hooks": {
+      "pre-commit": [
+        "composer check-style"
+      ],
+      "pre-push": [
+        "composer check-style"
+      ]
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "cghooks remove",
+      "cghooks add --ignore-lock",
+      "cghooks update"
+    ],
+    "post-merge": "composer install",
+    "post-install-cmd": [
+      "cghooks remove",
+      "cghooks add --ignore-lock",
+      "cghooks update"
+    ],
+    "check-style": "vendor/bin/pint --test",
+    "fix-style": "vendor/bin/pint"
+  },
+  "config": {
+    "allow-plugins": {
+      "easywechat-composer/easywechat-composer": true
+    }
+  }
+}
