@@ -19,5 +19,9 @@ Route::group([
 ], function (Router $router) {
     // 用户管理
     $router->resource('users', \App\Admin\Controllers\UserController::class);
+    // 配置分类
+    $router->resource('system_config_tab', \App\Admin\Controllers\SystemConfigTabController::class);
+    // 配置项
+    $router->resource('system_config', \App\Admin\Controllers\SystemConfigController::class);
 
 });
