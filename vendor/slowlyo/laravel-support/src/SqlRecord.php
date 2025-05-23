@@ -10,6 +10,12 @@ class SqlRecord
 
     public static function listen()
     {
+        try {
+            DB::getPdo();
+        } catch (\Exception $e) {
+            return;
+        }
+        
         DB::listen(function ($query) {
             $bindings = $query->bindings;
             $sql      = $query->sql;

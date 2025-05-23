@@ -47,7 +47,6 @@ return array(
     'Spatie\\Backtrace\\' => array($vendorDir . '/spatie/backtrace/src'),
     'Slowlyo\\Support\\' => array($vendorDir . '/slowlyo/laravel-support/src'),
     'Slowlyo\\OwlMenuSearch\\' => array($vendorDir . '/slowlyo/owl-menu-search/src'),
-    'Slowlyo\\OwlLoginGuard\\' => array($vendorDir . '/slowlyo/owl-login-guard/src'),
     'Slowlyo\\OwlLogViewer\\' => array($vendorDir . '/slowlyo/owl-log-viewer/src'),
     'Slowlyo\\OwlDict\\' => array($vendorDir . '/slowlyo/owl-dict/src'),
     'Slowlyo\\OwlAmisJsonParse\\' => array($vendorDir . '/slowlyo/owl-amis-json-parse/src'),
