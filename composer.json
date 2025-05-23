@@ -1,7 +1,7 @@
 {
-    "name": "zhumingchen/owl-admin-dev",
+    "name": "zhumingchen/owl-admin-wechat",
     "type": "project",
-    "description": "The skeleton application for the OwlAdmin framework.",
+    "description": "微信功能集成到OwlAdmin",
     "keywords": ["laravel", "framework", "owl-admin"],
     "license": "MIT",
     "require": {
