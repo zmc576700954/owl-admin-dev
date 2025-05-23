@@ -3,7 +3,7 @@
         'name' => 'zhumingchen/owl-admin-dev',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '7a8c622a92ccab310c3e490f468586e55545fc5b',
+        'reference' => '57355ee7f435e916c169de5ba332ba0216bdcac9',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(
@@ -1011,9 +1011,9 @@
             'dev_requirement' => false,
         ),
         'slowlyo/owl-admin' => array(
-            'pretty_version' => 'v4.0.9',
-            'version' => '4.0.9.0',
-            'reference' => '0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774',
+            'pretty_version' => 'v4.2.4',
+            'version' => '4.2.4.0',
+            'reference' => 'f62e8d047f62dcf121ec703703aa6eb40ea75e84',
             'type' => 'library',
             'install_path' => __DIR__ . '/../slowlyo/owl-admin',
             'aliases' => array(),
@@ -1436,7 +1436,7 @@
         'zhumingchen/owl-admin-dev' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '7a8c622a92ccab310c3e490f468586e55545fc5b',
+            'reference' => '57355ee7f435e916c169de5ba332ba0216bdcac9',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(

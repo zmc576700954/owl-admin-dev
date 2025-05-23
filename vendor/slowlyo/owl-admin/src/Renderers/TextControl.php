@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * Text 文本输入框。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/text
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class TextControl extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'input-text');
+
+
     }
 
     /**
@@ -40,7 +42,7 @@ class TextControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function addOn($value = '')
     {
@@ -93,6 +95,14 @@ class TextControl extends BaseRenderer
     public function clearValueOnHidden($value = true)
     {
         return $this->set('clearValueOnHidden', $value);
+    }
+
+    /**
+     * source从数据域取值时，数据域值变化后是否自动清空
+     */
+    public function clearValueOnSourceChange($value = true)
+    {
+        return $this->set('clearValueOnSourceChange', $value);
     }
 
     /**
@@ -160,7 +170,7 @@ class TextControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -296,7 +306,7 @@ class TextControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -528,7 +538,7 @@ class TextControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -624,7 +634,7 @@ class TextControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -656,7 +666,7 @@ class TextControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -720,7 +730,7 @@ class TextControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * InputSignature
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class InputSignature extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'input-signature');
+
+
     }
 
     /**
@@ -88,7 +90,7 @@ class InputSignature extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -248,7 +250,7 @@ class InputSignature extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -376,7 +378,7 @@ class InputSignature extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -440,7 +442,7 @@ class InputSignature extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -464,7 +466,7 @@ class InputSignature extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -493,6 +495,14 @@ class InputSignature extends BaseRenderer
     public function undoBtnLabel($value = '')
     {
         return $this->set('undoBtnLabel', $value);
+    }
+
+    /**
+     * 上传签名图片api, 仅在内嵌模式下生效 (上传签名图片api, 仅在内嵌模式下生效)
+     */
+    public function uploadApi($value = '')
+    {
+        return $this->set('uploadApi', $value);
     }
 
     /**
@@ -528,7 +538,7 @@ class InputSignature extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

@@ -4,15 +4,15 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * RowSelection
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class RowSelection extends BaseRenderer
 {
     public function __construct()
     {
-
+        
 
     }
 

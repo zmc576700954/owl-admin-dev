@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * 图片展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/image
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class Image extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'image');
+
+
     }
 
     /**
@@ -33,7 +35,7 @@ class Image extends BaseRenderer
 
     /**
      * 图片说明文字 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function caption($value = '')
     {
@@ -97,6 +99,14 @@ class Image extends BaseRenderer
     }
 
     /**
+     * 描述文字样式
+     */
+    public function fontStyle($value = '')
+    {
+        return $this->set('fontStyle', $value);
+    }
+
+    /**
      * 高度
      */
     public function height($value = '')
@@ -121,8 +131,16 @@ class Image extends BaseRenderer
     }
 
     /**
+     * 鼠标悬浮时的展示状态（对应AIpage的文字6，9，10不存在） 可选值: hover-slide | pull-top | scale-center | scale-top | text-style-1 | text-style-2 | text-style-3 | text-style-4 | text-style-5 | text-style-6 | text-style-7
+     */
+    public function hoverMode($value = '')
+    {
+        return $this->set('hoverMode', $value);
+    }
+
+    /**
      * 链接地址 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function href($value = '')
     {
@@ -147,7 +165,7 @@ class Image extends BaseRenderer
 
     /**
      * 图片描述信息 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function imageCaption($value = '')
     {
@@ -187,6 +205,14 @@ class Image extends BaseRenderer
     }
 
     /**
+     * 蒙层颜色
+     */
+    public function maskColor($value = '')
+    {
+        return $this->set('maskColor', $value);
+    }
+
+    /**
      * 关联字段名，也可以直接配置 src
      */
     public function name($value = '')
@@ -216,6 +242,14 @@ class Image extends BaseRenderer
     public function showToolbar($value = true)
     {
         return $this->set('showToolbar', $value);
+    }
+
+    /**
+     * 图集组件传入的排序方式
+     */
+    public function sortType($value = '')
+    {
+        return $this->set('sortType', $value);
     }
 
     /**
@@ -275,7 +309,7 @@ class Image extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -291,7 +325,7 @@ class Image extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -299,7 +333,7 @@ class Image extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -332,7 +366,7 @@ class Image extends BaseRenderer
 
     /**
      * 图片标题 (支持两种语法，但是不能混着用。分别是：1. `${xxx}` 或者 `${xxx|upperCase}` 2. `<%= data.xxx %>`
-     * 更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
+更多文档：https://aisuda.bce.baidu.com/amis/zh-CN/docs/concepts/template)
      */
     public function title($value = '')
     {

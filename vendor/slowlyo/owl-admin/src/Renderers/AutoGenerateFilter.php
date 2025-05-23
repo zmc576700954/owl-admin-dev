@@ -4,15 +4,15 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * AutoGenerateFilter
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class AutoGenerateFilter extends BaseRenderer
 {
     public function __construct()
     {
-
+        
 
     }
 
@@ -30,6 +30,22 @@ class AutoGenerateFilter extends BaseRenderer
     public function defaultCollapsed($value = true)
     {
         return $this->set('defaultCollapsed', $value);
+    }
+
+    /**
+     * 是否启用多选框
+     */
+    public function enableBulkActions($value = true)
+    {
+        return $this->set('enableBulkActions', $value);
+    }
+
+    /**
+     * 启用批量操作的表达式 (表达式，语法 `data.xxx > 5`。)
+     */
+    public function enableBulkActionsOn($value = '')
+    {
+        return $this->set('enableBulkActionsOn', $value);
     }
 
     /**

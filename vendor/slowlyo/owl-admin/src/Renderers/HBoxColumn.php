@@ -4,15 +4,15 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * HBoxColumn
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class HBoxColumn extends BaseRenderer
 {
     public function __construct()
     {
-
+        
 
     }
 

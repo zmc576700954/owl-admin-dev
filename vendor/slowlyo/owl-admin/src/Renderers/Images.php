@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * 图片集展示控件。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/images
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class Images extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'images');
+
+
     }
 
     /**
@@ -21,6 +23,14 @@ class Images extends BaseRenderer
     public function className($value = '')
     {
         return $this->set('className', $value);
+    }
+
+    /**
+     * 当前展示图片索引
+     */
+    public function currentIndex($value = '')
+    {
+        return $this->set('currentIndex', $value);
     }
 
     /**
@@ -56,6 +66,14 @@ class Images extends BaseRenderer
     }
 
     /**
+     * 展示模式，支持缩略图模式（thumb）和大图模式（full） 可选值: thumb | full
+     */
+    public function displayMode($value = '')
+    {
+        return $this->set('displayMode', $value);
+    }
+
+    /**
      * 编辑器配置，运行时可以忽略
      */
     public function editorSetting($value = '')
@@ -80,6 +98,30 @@ class Images extends BaseRenderer
     }
 
     /**
+     * 描述文字样式
+     */
+    public function fontStyle($value = '')
+    {
+        return $this->set('fontStyle', $value);
+    }
+
+    /**
+     * 大图模式下的缩放模式 可选值: cover | contain
+     */
+    public function fullThumbMode($value = '')
+    {
+        return $this->set('fullThumbMode', $value);
+    }
+
+    /**
+     * 高度（有sortType时生效）
+     */
+    public function height($value = '')
+    {
+        return $this->set('height', $value);
+    }
+
+    /**
      * 是否隐藏
      */
     public function hidden($value = true)
@@ -93,6 +135,14 @@ class Images extends BaseRenderer
     public function hiddenOn($value = '')
     {
         return $this->set('hiddenOn', $value);
+    }
+
+    /**
+     * 鼠标悬浮时的展示状态（对应AIpage的文字6，9，10不存在） 可选值: hover-slide | pull-top | scale-center | scale-top | text-style-1 | text-style-2 | text-style-3 | text-style-4 | text-style-5 | text-style-6 | text-style-7
+     */
+    public function hoverMode($value = '')
+    {
+        return $this->set('hoverMode', $value);
     }
 
     /**
@@ -120,6 +170,14 @@ class Images extends BaseRenderer
     }
 
     /**
+     * 蒙层颜色
+     */
+    public function maskColor($value = '')
+    {
+        return $this->set('maskColor', $value);
+    }
+
+    /**
      * 关联字段名，也可以直接配置 src
      */
     public function name($value = '')
@@ -136,7 +194,7 @@ class Images extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function options($value = '')
     {
@@ -176,7 +234,15 @@ class Images extends BaseRenderer
     }
 
     /**
-     *
+     * 排列方式 类命名方式按照上右下左四个边命名，l=2m，m=2s，最小单位为s 每条边的顺序都是从上到下，从左到右。 可选值: sm-ss-sss-m | sss-ss-ms-m | sms-ss-sms-m | sm-ss-sss-ss | ms-ss-sss-ss | sss-ss-sm-ss | mss-ss-ssm-ss | sss-ss-mm-ss | even-${number}-${number}
+     */
+    public function sortType($value = '')
+    {
+        return $this->set('sortType', $value);
+    }
+
+    /**
+     * 
      */
     public function source($value = '')
     {
@@ -240,7 +306,7 @@ class Images extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -256,7 +322,7 @@ class Images extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -264,7 +330,7 @@ class Images extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -312,7 +378,7 @@ class Images extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function value($value = '')
     {
@@ -333,6 +399,14 @@ class Images extends BaseRenderer
     public function visibleOn($value = '')
     {
         return $this->set('visibleOn', $value);
+    }
+
+    /**
+     * 宽度（有sortType时生效）
+     */
+    public function width($value = '')
+    {
+        return $this->set('width', $value);
     }
 
 

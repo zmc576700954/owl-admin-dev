@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * amis Page 渲染器。详情请见：https://aisuda.bce.baidu.com/amis/zh-CN/components/page
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class Page extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'page');
+
+
     }
 
     /**
@@ -45,6 +47,14 @@ class Page extends BaseRenderer
     public function asideMinWidth($value = '')
     {
         return $this->set('asideMinWidth', $value);
+    }
+
+    /**
+     * 边栏位置 可选值: left | right
+     */
+    public function asidePosition($value = '')
+    {
+        return $this->set('asidePosition', $value);
     }
 
     /**
@@ -112,7 +122,7 @@ class Page extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function definitions($value = '')
     {
@@ -208,7 +218,7 @@ class Page extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function loadingConfig($value = '')
     {
@@ -336,7 +346,7 @@ class Page extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -368,7 +378,7 @@ class Page extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -376,7 +386,7 @@ class Page extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {

@@ -30,10 +30,20 @@ class AdminPermissionController extends AdminController
         $crud = $this->baseCRUD()
             ->perPage(999)
             ->loadDataOnce()
-            ->filterTogglable(false)
+            ->filterTogglable(true)
+            ->filter($this->baseFilter()->body([
+                amis()->TextControl('name', admin_trans('admin.admin_permission.name'))
+                    ->size('md')
+                    ->clearable()
+                    ->placeholder(admin_trans('admin.admin_permission.name')),
+                amis()->TextControl('slug', admin_trans('admin.admin_permission.slug'))
+                    ->size('md')
+                    ->clearable()
+                    ->placeholder(admin_trans('admin.admin_permission.slug')),
+            ]))
             ->footerToolbar(['statistics'])
             ->headerToolbar([
-                $this->createButton(true, 'lg'),
+                $this->createButton('drawer'),
                 'bulkActions',
                 $autoBtn,
                 amis('reload')->set('align', 'right'),
@@ -55,7 +65,7 @@ class AdminPermissionController extends AdminController
                         Tag::make()->label('${item}')->className('my-1')
                     ),
                 $this->rowActions([
-                    $this->rowEditButton(true, 'lg'),
+                    $this->rowEditButton('drawer'),
                     $this->rowDeleteButton(),
                 ]),
             ]);
@@ -65,7 +75,7 @@ class AdminPermissionController extends AdminController
 
     public function form()
     {
-        return $this->baseForm()->body([
+        return $this->baseForm()->mode('normal')->body([
             amis()->TextControl('name', admin_trans('admin.admin_permission.name'))->required(),
             amis()->TextControl('slug', admin_trans('admin.admin_permission.slug'))->required(),
             amis()->TreeSelectControl('parent_id', admin_trans('admin.parent'))

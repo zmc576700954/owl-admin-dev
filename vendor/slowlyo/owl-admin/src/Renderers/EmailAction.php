@@ -4,16 +4,18 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * EmailAction
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class EmailAction extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'button');
-        $this->set('actionType', 'email');
+$this->set('actionType', 'email');
+
+
     }
 
     /**
@@ -145,6 +147,14 @@ class EmailAction extends BaseRenderer
     }
 
     /**
+     * 是否在动作结束前禁用按钮
+     */
+    public function disabledOnAction($value = true)
+    {
+        return $this->set('disabledOnAction', $value);
+    }
+
+    /**
      * 禁用时的文案提示。
      */
     public function disabledTip($value = '')
@@ -265,7 +275,7 @@ class EmailAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function primary($value = true)
     {
@@ -361,7 +371,7 @@ class EmailAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -385,6 +395,14 @@ class EmailAction extends BaseRenderer
     }
 
     /**
+     * 
+     */
+    public function tabIndex($value = '')
+    {
+        return $this->set('tabIndex', $value);
+    }
+
+    /**
      * 可以指定让谁来触发这个动作。
      */
     public function target($value = '')
@@ -393,7 +411,7 @@ class EmailAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -401,7 +419,7 @@ class EmailAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {
@@ -417,7 +435,7 @@ class EmailAction extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function tooltip($value = '')
     {

@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * 链式下拉框 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/chained-select
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class ChainedSelectControl extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'chained-select');
+
+
     }
 
     /**
@@ -61,6 +63,14 @@ class ChainedSelectControl extends BaseRenderer
     public function clearValueOnHidden($value = true)
     {
         return $this->set('clearValueOnHidden', $value);
+    }
+
+    /**
+     * source从数据域取值时，数据域值变化后是否自动清空
+     */
+    public function clearValueOnSourceChange($value = true)
+    {
+        return $this->set('clearValueOnSourceChange', $value);
     }
 
     /**
@@ -128,7 +138,7 @@ class ChainedSelectControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -264,7 +274,7 @@ class ChainedSelectControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -448,7 +458,7 @@ class ChainedSelectControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -536,7 +546,7 @@ class ChainedSelectControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -560,7 +570,7 @@ class ChainedSelectControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -608,7 +618,7 @@ class ChainedSelectControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

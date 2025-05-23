@@ -6295,24 +6295,13 @@
         },
         {
             "name": "slowlyo/owl-admin",
-            "version": "v4.0.9",
-            "version_normalized": "4.0.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/slowlyo/owl-admin.git",
-                "reference": "0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774"
-            },
+            "version": "v4.2.4",
+            "version_normalized": "4.2.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slowlyo/owl-admin/zipball/0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774",
-                "reference": "0991eb9bd1c4aa892c8f59f1f4435c22a4a4d774",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://mirrors.tencent.com/repository/composer/slowlyo/owl-admin/v4.2.4/slowlyo-owl-admin-v4.2.4.zip",
+                "reference": "f62e8d047f62dcf121ec703703aa6eb40ea75e84",
+                "shasum": ""
             },
             "require": {
                 "ext-gd": "*",
@@ -6321,7 +6310,7 @@
                 "php": ">=8.2",
                 "slowlyo/laravel-support": "*"
             },
-            "time": "2024-12-07T14:49:15+00:00",
+            "time": "2025-05-10T07:29:43+00:00",
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6342,7 +6331,6 @@
                     "Slowlyo\\OwlAdmin\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6365,7 +6353,7 @@
                 "email": "slowlyo_email@qq.com",
                 "forum": "https://github.com/orgs/owl-admin/discussions",
                 "issues": "https://github.com/Slowlyo/owl-admin/issues",
-                "source": "https://github.com/slowlyo/owl-admin/tree/v4.0.9",
+                "source": "https://github.com/slowlyo/owl-admin/tree/v4.2.4",
                 "wiki": "https://doc.owladmin.com/"
             },
             "install-path": "../slowlyo/owl-admin"

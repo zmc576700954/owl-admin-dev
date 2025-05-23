@@ -17,18 +17,19 @@ class AdminCodeGeneratorService extends AdminService
 
     public function listQuery()
     {
-        $keyword = request('keyword');
+        $title = request('title');
+        $tableName = request('table_name');
 
-        return parent::listQuery()->when($keyword, function ($query) use ($keyword) {
-            $query->where(function ($q) use ($keyword) {
-                $q->where('table_name', 'like', "%{$keyword}%")->orWhere('title', 'like', "%{$keyword}%");
-            });
+        return parent::listQuery()->when($title, function ($query) use ($title) {
+            $query->where('title', 'like', "%{$title}%");
+        })->when($tableName, function ($query) use ($tableName) {
+            $query->where('table_name', 'like', "%{$tableName}%");
         });
     }
 
     public function store($data)
     {
-        amis_abort_if(
+        admin_abort_if(
             $this->query()->where('table_name', $data['table_name'])->exists(),
             admin_trans('admin.code_generators.exists_table')
         );
@@ -43,7 +44,7 @@ class AdminCodeGeneratorService extends AdminService
             ->where($this->primaryKey(), '<>', $primaryKey)
             ->exists();
 
-        amis_abort_if($exists, admin_trans('admin.code_generators.exists_table'));
+        admin_abort_if($exists, admin_trans('admin.code_generators.exists_table'));
 
         return parent::update($primaryKey, $this->filterData($data));
     }

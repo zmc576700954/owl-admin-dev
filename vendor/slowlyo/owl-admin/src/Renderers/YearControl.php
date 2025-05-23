@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * 年份选择控件
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class YearControl extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'input-year');
+
+
     }
 
     /**
@@ -56,7 +58,7 @@ class YearControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -184,7 +186,7 @@ class YearControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -205,6 +207,14 @@ class YearControl extends BaseRenderer
     public function inputClassName($value = '')
     {
         return $this->set('inputClassName', $value);
+    }
+
+    /**
+     * 
+     */
+    public function inputForbid($value = true)
+    {
+        return $this->set('inputForbid', $value);
     }
 
     /**
@@ -320,7 +330,7 @@ class YearControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -400,7 +410,7 @@ class YearControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -424,7 +434,7 @@ class YearControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -480,7 +490,7 @@ class YearControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

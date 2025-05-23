@@ -22,7 +22,15 @@ class AdminPermissionService extends AdminService
 
     public function getTree()
     {
-        $list = $this->query()->orderBy('custom_order')->get()->toArray();
+        $name = request('name');
+        $slug = request('slug');
+
+        $list = $this->query()
+            ->when($name, fn($query) => $query->where('name', 'like', '%' . $name . '%'))
+            ->when($slug, fn($query) => $query->where('slug', 'like', '%' . $slug . '%'))
+            ->orderBy('custom_order')
+            ->get()
+            ->toArray();
 
         return array2tree($list);
     }
@@ -70,7 +78,7 @@ class AdminPermissionService extends AdminService
 
         $parent_id = Arr::get($data, 'parent_id');
         if ($parent_id != 0) {
-            amis_abort_if($this->parentIsChild($primaryKey, $parent_id), admin_trans('admin.admin_permission.parent_id_not_allow'));
+            admin_abort_if($this->parentIsChild($primaryKey, $parent_id), admin_trans('admin.admin_permission.parent_id_not_allow'));
         }
 
         $model = $this->query()->whereKey($primaryKey)->first();
@@ -82,10 +90,10 @@ class AdminPermissionService extends AdminService
     {
         $query = $this->query()->when($id, fn($query) => $query->where('id', '<>', $id));
 
-        amis_abort_if($query->clone()->where('name', $data['name'])
+        admin_abort_if($query->clone()->where('name', $data['name'])
             ->exists(), admin_trans('admin.admin_permission.name_already_exists'));
 
-        amis_abort_if($query->clone()->where('slug', $data['slug'])
+        admin_abort_if($query->clone()->where('slug', $data['slug'])
             ->exists(), admin_trans('admin.admin_permission.slug_already_exists'));
     }
 
@@ -104,6 +112,7 @@ class AdminPermissionService extends AdminService
     protected function saveData($data, array $columns, AdminPermission $model)
     {
         $menus = Arr::pull($data, 'menus');
+        $data['parent_id'] = data_get($data, 'parent_id', 0) ?: 0;
 
         foreach ($data as $k => $v) {
             if (!in_array($k, $columns)) {

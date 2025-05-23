@@ -4,15 +4,15 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * NavOverflow
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class NavOverflow extends BaseRenderer
 {
     public function __construct()
     {
-
+        
 
     }
 
@@ -38,6 +38,14 @@ class NavOverflow extends BaseRenderer
     public function maxVisibleCount($value = '')
     {
         return $this->set('maxVisibleCount', $value);
+    }
+
+    /**
+     * 导航超出后响应式收纳方案。 可选值: popup | swipe
+     */
+    public function mode($value = '')
+    {
+        return $this->set('mode', $value);
     }
 
     /**

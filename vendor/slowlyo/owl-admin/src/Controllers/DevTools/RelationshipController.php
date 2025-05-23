@@ -2,7 +2,6 @@
 
 namespace Slowlyo\OwlAdmin\Controllers\DevTools;
 
-use Illuminate\Support\Facades\Schema;
 use Slowlyo\OwlAdmin\Support\Cores\Database;
 use Slowlyo\OwlAdmin\Models\AdminRelationship;
 use Slowlyo\OwlAdmin\Controllers\AdminController;
@@ -18,7 +17,20 @@ class RelationshipController extends AdminController
     public function list()
     {
         $crud = $this->baseCRUD()
-            ->filterTogglable(false)
+            ->filter($this->baseFilter()->body([
+                amis()->TextControl('model', admin_trans('admin.relationships.model'))
+                    ->size('md')
+                    ->clearable()
+                    ->placeholder(admin_trans('admin.relationships.model')),
+                amis()->TextControl('title', admin_trans('admin.relationships.title'))
+                    ->size('md')
+                    ->clearable()
+                    ->placeholder(admin_trans('admin.relationships.title')),
+                amis()->TextControl('remark', admin_trans('admin.relationships.remark'))
+                    ->size('md')
+                    ->clearable()
+                    ->placeholder(admin_trans('admin.relationships.remark')),
+            ]))
             ->headerToolbar([
                 $this->createButton(true, 'lg'),
                 ...$this->baseHeaderToolBar(),
@@ -26,9 +38,9 @@ class RelationshipController extends AdminController
             ])
             ->columns([
                 amis()->TableColumn('id', 'ID')->sortable(),
-                amis()->TableColumn('model', admin_trans('admin.relationships.model'))->searchable(),
-                amis()->TableColumn('title', admin_trans('admin.relationships.title'))->searchable(),
-                amis()->TableColumn('remark', admin_trans('admin.relationships.remark'))->searchable(),
+                amis()->TableColumn('model', admin_trans('admin.relationships.model')),
+                amis()->TableColumn('title', admin_trans('admin.relationships.title')),
+                amis()->TableColumn('remark', admin_trans('admin.relationships.remark')),
                 $this->rowActions([
                     $this->previewButton(),
                     $this->rowEditButton(true, 'lg'),
@@ -257,7 +269,7 @@ class RelationshipController extends AdminController
 
         $table = $table ?: app($model)->getTable();
 
-        $columns = Schema::getColumnListing($table);
+        $columns = Database::getTableColumns($table);
 
         return $this->response()->success($columns);
     }

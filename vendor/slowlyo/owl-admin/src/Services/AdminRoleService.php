@@ -20,6 +20,27 @@ class AdminRoleService extends AdminService
         $this->modelName = Admin::adminRoleModel();
     }
 
+    public function searchable($query)
+    {
+        $name = request('name');
+        $slug = request('slug');
+        $createdAt = request('created_at');
+        if ($createdAt) {
+            $createdAt = safe_explode(',', $createdAt);
+        }
+
+        $query->where('slug', '<>', AdminRole::SuperAdministrator);
+
+        $query->when($name, fn($query) => $query->where('name', 'like', '%' . $name . '%'));
+        $query->when($slug, fn($query) => $query->where('slug', 'like', '%' . $slug . '%'));
+        $query->when($createdAt, function ($query) use ($createdAt) {
+            $query->whereBetween('created_at', [
+                $createdAt[0] . ' 00:00:00',
+                $createdAt[1] . ' 23:59:59'
+            ]);
+        });
+    }
+
     public function getEditData($id)
     {
         $permission = parent::getEditData($id);
@@ -71,11 +92,11 @@ class AdminRoleService extends AdminService
     {
         $query = $this->query()->when($id, fn($query) => $query->where('id', '<>', $id));
 
-        amis_abort_if($query->clone()
+        admin_abort_if($query->clone()
             ->where('name', $data['name'])
             ->exists(), admin_trans('admin.admin_role.name_already_exists'));
 
-        amis_abort_if($query->clone()
+        admin_abort_if($query->clone()
             ->where('slug', $data['slug'])
             ->exists(), admin_trans('admin.admin_role.slug_already_exists'));
     }
@@ -94,7 +115,7 @@ class AdminRoleService extends AdminService
         $_ids   = explode(',', $ids);
         $exists = $this->query()
             ->whereIn($this->primaryKey(), $_ids)
-            ->where('slug', 'administrator')
+            ->where('slug', AdminRole::SuperAdministrator)
             ->exists();
 
         admin_abort_if($exists, admin_trans('admin.admin_role.cannot_delete'));

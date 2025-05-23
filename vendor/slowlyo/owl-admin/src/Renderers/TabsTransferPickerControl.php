@@ -4,15 +4,17 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * TabsTransferPicker 穿梭器的弹框形态 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/form/tabs-transfer-picker
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class TabsTransferPickerControl extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'tabs-transfer-picker');
+
+
     }
 
     /**
@@ -69,6 +71,14 @@ class TabsTransferPickerControl extends BaseRenderer
     public function clearValueOnHidden($value = true)
     {
         return $this->set('clearValueOnHidden', $value);
+    }
+
+    /**
+     * source从数据域取值时，数据域值变化后是否自动清空
+     */
+    public function clearValueOnSourceChange($value = true)
+    {
+        return $this->set('clearValueOnSourceChange', $value);
     }
 
     /**
@@ -144,7 +154,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function desc($value = '')
     {
@@ -280,7 +290,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function initAutoFill($value = '')
     {
@@ -400,7 +410,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function loadingConfig($value = '')
     {
@@ -568,7 +578,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function row($value = '')
     {
@@ -736,7 +746,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -768,7 +778,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -776,7 +786,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function type($value = 'tabs-transfer-picker')
     {
@@ -816,7 +826,7 @@ class TabsTransferPickerControl extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function validations($value = '')
     {

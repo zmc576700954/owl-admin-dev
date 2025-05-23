@@ -4,15 +4,25 @@ namespace Slowlyo\OwlAdmin\Renderers;
 
 /**
  * Timeline
- *
- * @author  slowlyo
- * @version 6.10.0
+ * 
+ * @author slowlyo
+ * @version 6.12.0
  */
 class Timeline extends BaseRenderer
 {
     public function __construct()
     {
         $this->set('type', 'timeline');
+
+
+    }
+
+    /**
+     * 卡片展示配置，如果传入则将items数据传入cardSchema中循环渲染，itemTitleSchema、titleClassName、detailClassName将不生效。配置后 timeline item中的数据都将可以在cardSchema中通过数据方式引用。如果子节点也配置了cardSchema，则子节点的cardSchema优先级高于timeline的cardSchema (Card 卡片渲染器。 文档：https://aisuda.bce.baidu.com/amis/zh-CN/components/card)
+     */
+    public function cardSchema($value = '')
+    {
+        return $this->set('cardSchema', $value);
     }
 
     /**
@@ -112,7 +122,7 @@ class Timeline extends BaseRenderer
     }
 
     /**
-     * 文字相对于时间轴展示方向 可选值: left | right | alternate
+     * 文字相对于时间轴展示方向 可选值: left | right | top | bottom | alternate
      */
     public function mode($value = '')
     {
@@ -192,7 +202,7 @@ class Timeline extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function staticSchema($value = '')
     {
@@ -208,7 +218,7 @@ class Timeline extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testIdBuilder($value = '')
     {
@@ -216,7 +226,7 @@ class Timeline extends BaseRenderer
     }
 
     /**
-     *
+     * 
      */
     public function testid($value = '')
     {

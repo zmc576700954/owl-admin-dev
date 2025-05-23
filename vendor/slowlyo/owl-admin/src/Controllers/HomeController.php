@@ -33,7 +33,8 @@ class HomeController extends AdminController
     public function codeView()
     {
         return amis()->Panel()->className('h-full clear-card-mb rounded-md')->body([
-            amis()->Markdown()->options(['html' => true, 'breaks' => true])->value(<<<MD
+            amis()->Markdown()->options(['html' => true, 'breaks' => true])->value(
+                <<<MD
 ### __The beginning of everything__
 
 <br>
@@ -45,17 +46,24 @@ echo 'Hello World';
 ```
 MD
             ),
+        ])->id('code-view-panel')->set('animations', [
+            'enter' => [
+                'duration' => 0.5,
+                'type'     => 'fadeInRight',
+            ],
         ]);
     }
 
     public function clock()
     {
         /** @noinspection all */
-        return amis()->Card()->className('h-full bg-blingbling mb-4')->header(['title' => 'Clock'])->body([
+        $panel = amis()->Panel()->className('h-full bg-blingbling')->body([
+            amis()->Tpl()->tpl('<div class="text-2xl font-bold mb-4">Clock</div>'),
             amis()->Custom()
                 ->name('clock')
                 ->html('<div id="clock" class="text-4xl"></div><div id="clock-date" class="mt-5"></div>')
-                ->onMount(<<<JS
+                ->onMount(
+                    <<<JS
 const clock = document.getElementById('clock');
 const tick = () => {
     clock.innerHTML = (new Date()).toLocaleTimeString();
@@ -69,6 +77,13 @@ JS
 
                 ),
         ]);
+
+        return amis()->Wrapper()->size('none')->className('h-full mb-3')->id('clock-panel')->set('animations', [
+            'enter' => [
+                'duration' => 0.5,
+                'type'     => 'fadeInRight',
+            ],
+        ])->body($panel);
     }
 
     public function frameworkInfo()
@@ -83,7 +98,7 @@ JS
                 ->link($link);
         };
 
-        return amis()->Card()->className('h-96')->body(
+        return amis()->Panel()->className('h-96')->body(
             amis()->Wrapper()->className('h-full')->body([
                 amis()->Flex()
                     ->className('h-full')
@@ -101,12 +116,17 @@ JS
                         ]),
                     ]),
             ])
-        );
+        )->id('framework-info')->set('animations', [
+            'enter' => [
+                'duration' => 0.5,
+                'type'     => 'zoomIn',
+            ],
+        ]);
     }
 
     public function pieChart()
     {
-        return amis()->Card()->className('h-96')->body(
+        return amis()->Panel()->className('w-full h-96')->body([
             amis()->Chart()->height(350)->config([
                 'backgroundColor' => '',
                 'tooltip'         => ['trigger' => 'item'],
@@ -137,7 +157,12 @@ JS
                     ],
                 ],
             ])
-        );
+        ])->id('pie-chart-panel')->set('animations', [
+            'enter' => [
+                'duration' => 0.5,
+                'type'     => 'zoomIn',
+            ],
+        ]);
     }
 
     public function lineChart()
@@ -185,13 +210,19 @@ JS
             ],
         ]);
 
-        return amis()->Card()->className('clear-card-mb')->body($chart);
+        return amis()->Panel()->className('clear-card-mb')->body($chart)->id('line-chart-panel')->set('animations', [
+            'enter' => [
+                'duration' => 0.5,
+                'type'     => 'zoomIn',
+            ],
+        ]);
     }
 
     public function cube()
     {
-        return amis()->Card()->className('h-96 ml-4 w-8/12')->body(
-            amis()->Html()->html(<<<HTML
+        return amis()->Panel()->className('h-96 ml-4 w-8/12')->body(
+            amis()->Html()->html(
+                <<<HTML
 <style>
     .cube-box{ height: 300px; display: flex; align-items: center; justify-content: center; }
   .cube { width: 100px; height: 100px; position: relative; transform-style: preserve-3d; animation: rotate 10s linear infinite; }
@@ -240,7 +271,12 @@ JS
 HTML
 
             )
-        );
+        )->id('cube-panel')->set('animations', [
+            'enter' => [
+                'duration' => 0.5,
+                'type'     => 'zoomIn',
+            ],
+        ]);
     }
 
     private function css(): array
@@ -255,7 +291,7 @@ HTML
             ],
             '.bg-blingbling'                 => [
                 'color'             => '#fff',
-                'background'        => 'linear-gradient(to bottom right, #2C3E50, #FD746C, #FF8235, #ffff1c, #92FE9D, #00C9FF, #a044ff, #e73827)',
+                'background'        => 'linear-gradient(to bottom right, #00C9FF, #FD746C, #FF8235, #ffff1c, #92FE9D, #2C3E50, #a044ff, #e73827)',
                 'background-repeat' => 'no-repeat',
                 'background-size'   => '1000% 1000%',
                 'animation'         => 'gradient 60s ease infinite',
